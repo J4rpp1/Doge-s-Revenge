@@ -25,7 +25,7 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
         [Tooltip("The character's run speed.")]
         [SerializeField]
-        private float _runSpeed = 5.0f;
+        private float _runSpeed = 200f;
 
         #endregion
 
@@ -173,6 +173,7 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
             // Interpolate character's rotation towards camera's view direction
 
+            //var newRotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * 20f);
             //var newRotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * 20f);
             //movement.rotation = Quaternion.Euler(0.0f, newRotation.eulerAngles.y, 0f);
 

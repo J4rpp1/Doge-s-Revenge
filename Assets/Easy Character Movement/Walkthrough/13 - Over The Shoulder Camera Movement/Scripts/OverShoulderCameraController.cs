@@ -52,6 +52,8 @@ namespace OrangeTech.Cameras
 
         #region PROPERTIES
 
+        
+
         public Transform target
         {
             get { return _target; }
@@ -113,6 +115,8 @@ namespace OrangeTech.Cameras
 
         public void Awake()
         {
+            Cursor.visible = false; //hides cursor
+            Cursor.lockState = CursorLockMode.Locked;
             var cam = GetComponentInChildren<Camera>();
 
             cameraTransform = cam.transform;
