@@ -8,6 +8,9 @@ public class Melee : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public int attackDamage = 40;
+    public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +28,13 @@ public class Melee : MonoBehaviour
 
     void Attack()
     {
+        animator.SetTrigger("Attack");
+
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider enemey in hitEnemies)
+        foreach(Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage
+            enemy.GetComponent<EnemyHp>().TakeDamage(attackDamage);
         }
     }
 
