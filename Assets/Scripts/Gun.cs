@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     public float speed = 20;
     public float fireRate = 0.2f;
     [HideInInspector] public bool canFire;
-    public int ammoCount = 0;
+    public int ammoCount;
     public TMP_Text ammoText;
     public static Gun instance;
 
