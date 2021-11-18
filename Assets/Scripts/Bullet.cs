@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
     public int damage = 100;
+    public float hitPoint;
+    public Rigidbody item;
+
+    private void Start()
+    {
+        StartCoroutine("Destroy");
+    }
     private void OnTriggerEnter(Collider hitInfo)
     {
         EnemyHp enemy = hitInfo.GetComponent<EnemyHp>();
@@ -12,6 +20,14 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+        Instantiate(item, transform.position,transform.rotation);
+        
+        Destroy(gameObject);
+    }
+
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
