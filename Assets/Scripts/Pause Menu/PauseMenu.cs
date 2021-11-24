@@ -33,14 +33,12 @@ public class PauseMenu : MonoBehaviour
     }
     private void Pause() {
         isPaused = true;
-        UpdateAnimation();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
     }
     private void Unpause() {
         isPaused = false;
-        UpdateAnimation();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -64,6 +62,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
 
             }
+            UpdateAnimation();
 
         }
 
