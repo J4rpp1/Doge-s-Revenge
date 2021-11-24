@@ -5,33 +5,59 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool isPaused = false;
+    [SerializeField]
+    private float timeScale = 1.0f;
+    [SerializeField]
+    private bool isPaused = false;
+
     KeyCode pauseKey = KeyCode.P;
     private Animator animator;
 
+    
+    public void OnResumeButtonPressed() {
+        Unpause();
+
+    }
+    public void OnRestartButtonPressed() {
+        return; //not implemented
+
+    }
+    public void OnExitToMenuButtonPressed() {
+        return; //not implemented
+
+    }
+
+    private void UpdateAnimation() {
+        animator.SetBool("isPaused", isPaused);
+
+    }
     private void Pause() {
-        //Time.timeScale = 0.0f;
         isPaused = true;
-        animator.SetBool("isPaused", true);
+        UpdateAnimation();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
     }
-
-    private void Resume() {
-        //Time.timeScale = 1.0f;
+    private void Unpause() {
         isPaused = false;
-        animator.SetBool("isPaused", false);
+        UpdateAnimation();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
-    void Start()
-    {
+    private void Start() {
         animator = GetComponent<Animator>();
+        UpdateAnimation();
+
     }
 
     private void Update() {
+        Time.timeScale = timeScale;
+
         if (Input.GetKeyDown(pauseKey)) {
             if (isPaused) {
-                Resume();
+                Unpause();
                 
             }
             else {
@@ -42,6 +68,5 @@ public class PauseMenu : MonoBehaviour
         }
 
     }
-
 
 }
