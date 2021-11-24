@@ -13,9 +13,11 @@ public class danger : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        playerHp.currentHP = playerHp.currentHP - dealDamage;
-
+        if (other.name == "Player")
+        {
+            playerHp.currentHP = playerHp.currentHP - dealDamage;
+        }
     }
 }
