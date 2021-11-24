@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     public int ammoCount;
     public TMP_Text ammoText;
     public static Gun instance;
+    public Transform shootPosition;
 
 
     public void Awake()
@@ -41,7 +42,7 @@ public class Gun : MonoBehaviour
     {
         canFire = false;
         ammoCount -= 1;
-        Rigidbody instantiatedProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
+        Rigidbody instantiatedProjectile = Instantiate(projectile, shootPosition.position, shootPosition.rotation) as Rigidbody;
         instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
         yield return new WaitForSeconds(fireRate);
         canFire = true;
