@@ -13,20 +13,36 @@ public class PauseMenu : MonoBehaviour
     KeyCode pauseKey = KeyCode.P;
     private Animator animator;
 
+    
+    public void OnResumeButtonPressed() {
+        Unpause();
+
+    }
+    public void OnRestartButtonPressed() {
+        return; //not implemented
+
+    }
+    public void OnExitToMenuButtonPressed() {
+        return; //not implemented
+
+    }
+
     private void UpdateAnimation() {
         animator.SetBool("isPaused", isPaused);
 
     }
-
     private void Pause() {
         isPaused = true;
         UpdateAnimation();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
     }
-
     private void Unpause() {
         isPaused = false;
         UpdateAnimation();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
