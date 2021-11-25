@@ -6,10 +6,14 @@ public class Coin : MonoBehaviour
 {
     PlayerMoney playermoney;
     public int coinBonus = 1;
-    // Start is called before the first frame update
+    public Rigidbody rb;
+    Collider m_Collider;
     private void Awake()
     {
+        m_Collider = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
         playermoney = FindObjectOfType<PlayerMoney>();
+        StartCoroutine(StopGravity());
     }
 
     // Update is called once per frame
@@ -20,5 +24,14 @@ public class Coin : MonoBehaviour
             playermoney.moneyCount = playermoney.moneyCount + coinBonus;
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator StopGravity()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_Collider.enabled = !m_Collider.enabled;
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
     }
 }

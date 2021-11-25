@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float fireRate = 0.3f;
     private float fireCountdown = 0f;
+    public float speed = 20f;
 
 
     [Header("Muista")]
@@ -18,7 +19,8 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 5f;
 
-   
+    public Rigidbody bulletPrefab;
+    public Transform shootPosition;
 
 
     void Start()
@@ -74,7 +76,9 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("ampuu");
+        // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
+        instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
     }
 
     private void OnDrawGizmosSelected()

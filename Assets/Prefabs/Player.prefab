@@ -458,7 +458,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 40
+  attackDamage: 100
   animator: {fileID: 1691912700234042923}
 --- !u!95 &1691912700234042923
 Animator:
