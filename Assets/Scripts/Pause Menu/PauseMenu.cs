@@ -62,9 +62,9 @@ public class PauseMenu : MonoBehaviour
                 Pause();
 
             }
-            UpdateAnimation();
 
         }
+        UpdateAnimation();
 
     }
 
