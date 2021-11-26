@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -6,9 +7,12 @@ public class EnemyBullet : MonoBehaviour
     public int dealDamage = 1;
     public Rigidbody item;
 
+   
     private void Awake()
     {
         playerHp = FindObjectOfType<PlayerHp>();
+        StartCoroutine(Destroy());
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,5 +25,10 @@ public class EnemyBullet : MonoBehaviour
 
         Destroy(gameObject);
         }
-    
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
+
 }

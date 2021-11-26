@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         ammoText.text = "Ammo " + ammoCount.ToString();
-        if (Input.GetButton("Fire1") && canFire && ammoCount > 0)
+        if (Input.GetButton("Fire1") && canFire && ammoCount > 0 && PauseMenu.isPaused == false == ShopMenu.shopActive == false)
         {
             StartCoroutine(FireRate());
             

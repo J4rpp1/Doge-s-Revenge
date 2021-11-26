@@ -530,6 +530,21 @@ namespace ECM.Controllers
             }
         }
 
+        private void Start()
+        {
+                if (ShopMenu.doubleJumpIsActive == false)
+            {
+                _maxMidAirJumps = 0;
+                Debug.Log("hyppely");
+            }
+
+            if (ShopMenu.doubleJumpIsActive == true)
+            {
+                _maxMidAirJumps = 1;
+                Debug.Log("hyppely2");
+            }
+        }
+
         /// <summary>
         /// Rotate the character towards a given direction vector.
         /// </summary>
@@ -643,7 +658,7 @@ namespace ECM.Controllers
                 return;
 
             _midAirJumpCount++;         // Increase mid-air jumps counter
-
+            Debug.Log("perse");
             _canJump = false;           // Halt jump until jump button is released
             _isJumping = true;          // Update isJumping flag
             _updateJumpTimer = true;    // Allow mid-air jump to be variable height
@@ -903,7 +918,7 @@ namespace ECM.Controllers
         public virtual void Awake()
         {
             // Cache components
-
+           
             movement = GetComponent<CharacterMovement>();
             movement.platformUpdatesRotation = true;
 

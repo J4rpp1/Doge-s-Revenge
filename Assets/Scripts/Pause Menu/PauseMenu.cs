@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    
+    //private float timeScale = 1.0f;
     [SerializeField]
-    private float timeScale = 1.0f;
-    [SerializeField]
-    private bool isPaused = false;
+    public static bool isPaused = false;
+    
 
     KeyCode pauseKey = KeyCode.P;
     private Animator animator;
@@ -35,12 +36,14 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
 
     }
     private void Unpause() {
         isPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
 
     }
 
@@ -51,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void Update() {
-        Time.timeScale = timeScale;
+        //Time.timeScale = timeScale;
 
         if (Input.GetKeyDown(pauseKey)) {
             if (isPaused) {

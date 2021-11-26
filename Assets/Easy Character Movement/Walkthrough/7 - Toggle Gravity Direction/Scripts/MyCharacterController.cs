@@ -79,6 +79,7 @@ namespace ECM.Walkthrough.ToggleGravity
         public override void Awake()
         {
             // Initialize BaseCharacterController
+        
 
             base.Awake();
 
