@@ -8,29 +8,38 @@ public class Melee : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public int attackDamage = 10;
+    public Animator animator;
+    private bool canMelee;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        canMelee = true;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetButton("Fire2") && canMelee)
         {
-            Attack();
+           StartCoroutine (Attack());
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
+        canMelee = false;
+        animator.SetTrigger("Attack");
+
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider enemey in hitEnemies)
+        foreach(Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage
+            enemy.GetComponent<EnemyHp>().TakeDamage(attackDamage);
         }
+        yield return new WaitForSeconds(0.6f);
+        canMelee = true;
     }
 
     private void OnDrawGizmosSelected()

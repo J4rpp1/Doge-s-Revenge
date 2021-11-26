@@ -115,11 +115,11 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
             var forwardAmount = Mathf.InverseLerp(0.0f, runSpeed, Mathf.Abs(movement.forwardSpeed));
 
-            animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
-            animator.SetBool("OnGround", movement.isGrounded);
+            //animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
+           // animator.SetBool("OnGround", movement.isGrounded);
 
-            if (!movement.isGrounded)
-                animator.SetFloat("Jump", movement.velocity.y, 0.1f, Time.deltaTime);
+           // if (!movement.isGrounded)
+               // animator.SetFloat("Jump", movement.velocity.y, 0.1f, Time.deltaTime);
         }
 
         /// <summary>
