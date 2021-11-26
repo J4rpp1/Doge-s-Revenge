@@ -129,7 +129,14 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
         protected override void HandleInput()
         {
-            moveDirection = new Vector3
+            // Toggle pause / resume.
+            // By default, will restore character's velocity on resume (eg: restoreVelocityOnResume = true)
+/*             if (Input.GetKeyDown(KeyCode.P))
+                pause = !pause;
+				Debug.Log("Paused: "+pause); */
+
+			// Handle user input
+			moveDirection = new Vector3
             {
                 x = Input.GetAxisRaw("Horizontal"),
                 y = 0.0f,

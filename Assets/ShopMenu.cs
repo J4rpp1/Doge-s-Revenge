@@ -42,7 +42,7 @@ public class ShopMenu : MonoBehaviour
             shopMenuUI.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f;
+            Time.timeScale = Mathf.Epsilon;
             shopActive = true;
             pressEText.SetActive(false);
         }

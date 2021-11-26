@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0;
+        Time.timeScale = Mathf.Epsilon;
 
     }
     private void Unpause() {
