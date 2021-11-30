@@ -513,7 +513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 52}
+  m_AnchoredPosition: {x: 0, y: 72.31}
   m_SizeDelta: {x: 233.5892, y: 82.6446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3317651484266743119
@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a52505ca7421e40ab08c5490ab4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thePlayer: {fileID: 5791651164786902470}
   maxHP: 3
   currentHP: 3
   hearts:
@@ -657,6 +658,7 @@ MonoBehaviour:
   - {fileID: 6022794856791730550}
   fullHearth: {fileID: 21300000, guid: 92aee0f3a889ca448a1432fa34408cef, type: 3}
   emptyHearth: {fileID: 21300000, guid: ed57f4c2d85b72f4783ee1a424588b1e, type: 3}
+  respawnLength: 0
 --- !u!1 &5791651165151209361
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +723,7 @@ GameObject:
   - component: {fileID: 5791651165201209446}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
