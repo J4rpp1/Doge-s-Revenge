@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHp : MonoBehaviour
+public class EnemyHp : MonoBehaviour, IDamageable
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -13,6 +13,7 @@ public class EnemyHp : MonoBehaviour
     public Transform coinPosition2;
     public Transform coinPosition3;
     public float speed = 1f;
+    public int damage = 50;
     
     void Start()
     {
@@ -25,7 +26,7 @@ public class EnemyHp : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damage)
+    public void Damage()
     {
         currentHealth -= damage;
 

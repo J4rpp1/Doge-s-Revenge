@@ -32,20 +32,31 @@ public class Melee : MonoBehaviour
         canMelee = false;
         animator.SetTrigger("Attack");
 
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        /*Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyHp>().TakeDamage(attackDamage);
-        }
+            enemy.GetComponent<EnemyHp>().Damage();
+        }*/
+        
         yield return new WaitForSeconds(0.6f);
         canMelee = true;
     }
+    private void OnCollisionEnter(Collision hitInfo) //using parameter Collision instead of Collider to use GetContact
+    {
+        IDamageable damageable = hitInfo.collider.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.Damage();
+            Debug.Log("osuu");
+            //Instantiate(item, transform.position, transform.rotation); //primary particles now spawned when enemy is damaged
+        }
+    }
 
-    private void OnDrawGizmosSelected()
+      /*  private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+    }*/
 }

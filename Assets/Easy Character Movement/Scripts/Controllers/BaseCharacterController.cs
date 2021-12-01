@@ -658,7 +658,7 @@ namespace ECM.Controllers
                 return;
 
             _midAirJumpCount++;         // Increase mid-air jumps counter
-            Debug.Log("perse");
+            
             _canJump = false;           // Halt jump until jump button is released
             _isJumping = true;          // Update isJumping flag
             _updateJumpTimer = true;    // Allow mid-air jump to be variable height

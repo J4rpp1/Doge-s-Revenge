@@ -32,6 +32,7 @@ public class ShopMenu : MonoBehaviour
         if(doubleJumpBought > 9)
         {
             doubleJumpIsActive = true;
+            Debug.Log("tuplahyppy");
         }
     }
 
@@ -85,6 +86,7 @@ public class ShopMenu : MonoBehaviour
         {
             playermoney.moneyCount = playermoney.moneyCount - doubleJumpCost;
             PlayerPrefs.SetInt("DoubleJump", 10);
+            doubleJumpIsActive = true;
         }
     }
 

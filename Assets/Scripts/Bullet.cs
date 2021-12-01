@@ -16,10 +16,11 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision hitInfo) //using parameter Collision instead of Collider to use GetContact
     {
-        EnemyHp enemy = hitInfo.gameObject.GetComponent<EnemyHp>();
-        if(enemy != null)
+        IDamageable damageable = hitInfo.collider.GetComponent<IDamageable>();
+        if(damageable != null)
         {
-            enemy.TakeDamage(damage);
+            damageable.Damage();
+            
         	Instantiate(item, transform.position,transform.rotation); //primary particles now spawned when enemy is damaged
         }
 
