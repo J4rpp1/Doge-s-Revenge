@@ -8,6 +8,8 @@ public class Coin : MonoBehaviour
     public int coinBonus = 1;
     public Rigidbody rb;
     Collider m_Collider;
+	[SerializeField]
+	float coinFreezeTime;
     private void Awake()
     {
         m_Collider = GetComponent<Collider>();
@@ -28,7 +30,7 @@ public class Coin : MonoBehaviour
 
     IEnumerator StopGravity()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(coinFreezeTime);
         m_Collider.enabled = !m_Collider.enabled;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
         rb.isKinematic = true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using GlobalVariables;
 
 public class ShopMenu : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class ShopMenu : MonoBehaviour
             shopMenuUI.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = Mathf.Epsilon;
+            Time.timeScale = Variables.PausedTimeScale; //Always use this when pausing
             shopActive = true;
             pressEText.SetActive(false);
         }

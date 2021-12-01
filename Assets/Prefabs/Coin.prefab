@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: af7e53629fe21e741a90d32619f1903f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinBonus: 1
   rb: {fileID: 5811625053898171715}
+  coinFreezeTime: 0.5
 --- !u!136 &8064102310118146140
 CapsuleCollider:
   m_ObjectHideFlags: 0
