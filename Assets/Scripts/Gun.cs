@@ -5,7 +5,7 @@ using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public Rigidbody projectile;
     public float speed = 20;
     public float fireRate = 0.2f;
@@ -24,10 +24,11 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         canFire = true;
-        ammoCount = 50;
+        
+       ammoCount = PlayerPrefs.GetInt("Ammo", ammoCount);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         ammoText.text = "Ammo " + ammoCount.ToString();
