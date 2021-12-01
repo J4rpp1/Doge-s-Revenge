@@ -25,6 +25,9 @@ public class CheckPoint : MonoBehaviour
         if (other.tag == "Player")
         {
             theGameManager.SetSpawnPoint(transform.position);
+            theGameManager.x = transform.position.x;
+            theGameManager.y = transform.position.y;
+            theGameManager.z = transform.position.z;
         }
     }
 }

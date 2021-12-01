@@ -29,6 +29,7 @@ public class PlayerHp : MonoBehaviour
         currentHP = maxHP;
         isDead = false;
         thePlayer.transform.position = theGameManager.respawnPoint;
+        
     }
 
     private void Awake()
