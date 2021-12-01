@@ -13,6 +13,7 @@ public class PlayerMoney : MonoBehaviour
     private void Start()
     {
         moneyCount = PlayerPrefs.GetInt("PlayerMoney");
+        StartCoroutine(MoneySave());
     }
 
     void Awake()
@@ -24,6 +25,16 @@ public class PlayerMoney : MonoBehaviour
     void Update()
     {
         moneyText.text = "Money " + moneyCount.ToString();
-        PlayerPrefs.SetInt("PlayerMoney", moneyCount);
+        
+    }
+
+    IEnumerator MoneySave()
+    {
+        while (true)
+        {
+            PlayerPrefs.SetInt("PlayerMoney", moneyCount);
+            yield return new WaitForSeconds(10);
+            Debug.Log("rahat tallennettu");
+        }
     }
 }
