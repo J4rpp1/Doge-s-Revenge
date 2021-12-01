@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GlobalVariables;
 
 
 public class PauseMenu : MonoBehaviour
 {
     
-    //private float timeScale = 1.0f;
+    
     [SerializeField]
     public static bool isPaused = false;
-    
+	//float pausedTime = 0.0001f;
 
     KeyCode pauseKey = KeyCode.P;
     private Animator animator;
@@ -36,7 +37,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = Mathf.Epsilon;
+        Time.timeScale = Variables.PausedTimeScale; //Always use this when pausing
 
     }
     private void Unpause() {

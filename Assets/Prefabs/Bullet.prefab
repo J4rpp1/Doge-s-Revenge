@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 3123057132109590257}
   - component: {fileID: -5358227570369070557}
   - component: {fileID: 1409985363522336235}
-  m_Layer: 0
+  - component: {fileID: 5370193774090702277}
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4449643901553223368}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -105,14 +106,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4449643901553223368}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.05
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1409985363522336235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49749a2ac6397944a9648d9353dc59ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 0}
   damage: 100
   hitPoint: 0
   item: {fileID: 5146267877922213421, guid: 085cb62aeba7a1b4288fe5cf5204db8a, type: 3}
+  splashParticles: {fileID: 221748013575512047, guid: e2315e9c35e4e7642832a6d9817d6046, type: 3}
+--- !u!136 &5370193774090702277
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4449643901553223368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.46
+  m_Height: 1.57
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
