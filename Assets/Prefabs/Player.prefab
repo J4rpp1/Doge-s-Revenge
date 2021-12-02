@@ -374,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 2247073411878889360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.517, y: 1.758, z: 0.377}
-  m_LocalScale: {x: 0.1458, y: 2.6798, z: 0.0741369}
+  m_LocalScale: {x: 0.1458, y: 1.54, z: 0.0741369}
   m_Children: []
   m_Father: {fileID: 5791651165201209441}
   m_RootOrder: 0
@@ -460,6 +460,8 @@ MonoBehaviour:
     m_Bits: 0
   attackDamage: 100
   animator: {fileID: 1691912700234042923}
+  item: {fileID: 0}
+  splashParticles: {fileID: 0}
 --- !u!95 &1691912700234042923
 Animator:
   serializedVersion: 3

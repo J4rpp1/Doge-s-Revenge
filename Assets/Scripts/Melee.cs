@@ -11,11 +11,15 @@ public class Melee : MonoBehaviour
     public int attackDamage = 10;
     public Animator animator;
     private bool canMelee;
-    
+    Collider m_Collider;
+    public Rigidbody item;
+    public Transform splashParticles;
+
     // Start is called before the first frame update
     void Start()
     {
-        canMelee = true;   
+        canMelee = true;
+        m_Collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -31,6 +35,7 @@ public class Melee : MonoBehaviour
     {
         canMelee = false;
         animator.SetTrigger("Attack");
+        m_Collider.enabled = true;
 
         /*Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
@@ -38,9 +43,10 @@ public class Melee : MonoBehaviour
         {
             enemy.GetComponent<EnemyHp>().Damage();
         }*/
-        
+
         yield return new WaitForSeconds(0.6f);
         canMelee = true;
+        m_Collider.enabled = false;
     }
     private void OnCollisionEnter(Collision hitInfo) //using parameter Collision instead of Collider to use GetContact
     {
@@ -49,8 +55,10 @@ public class Melee : MonoBehaviour
         {
             damageable.Damage();
             Debug.Log("osuu");
-            //Instantiate(item, transform.position, transform.rotation); //primary particles now spawned when enemy is damaged
+           // Instantiate(item, transform.position, transform.rotation); //primary particles now spawned when enemy is damaged
         }
+        var firstContact = hitInfo.GetContact(0); //Get info from first contact event that happens
+        Instantiate(splashParticles, firstContact.point, Quaternion.LookRotation(firstContact.normal, Vector3.up));
     }
 
       /*  private void OnDrawGizmosSelected()
@@ -59,4 +67,5 @@ public class Melee : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }*/
+
 }
