@@ -3,7 +3,22 @@ guid: 6871faf51eaa8af4cac9d679b2d8a0aa
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crate
+    second: {fileID: 2100000, guid: a2c7089b5a8db3c45a3dadb6cf6409ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kulmat
+    second: {fileID: 2100000, guid: 481f8593bd8141d4b9010177b21c3c3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallireuna
+    second: {fileID: 2100000, guid: 90e2de56fd14c2f4dadc036d05ef144c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
