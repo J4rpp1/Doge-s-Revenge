@@ -706,7 +706,7 @@ MonoBehaviour:
   _target: {fileID: 5791651165201209441}
   _minPitch: -60
   _maxPitch: 60
-  _pitchDampTime: 0.1
+  _pitchDampTime: 0.01
 --- !u!1 &5791651165201209447
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,9 +806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eae04a4fe514bf4789aec1bdb93100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLateralSpeed: 10
+  _maxLateralSpeed: 40
   _maxRiseSpeed: 15
-  _maxFallSpeed: 15
+  _maxFallSpeed: 25
   _useGravity: 1
   _gravity: {x: 0, y: -30, z: 0}
   _slideOnSteepSlope: 0
@@ -830,9 +830,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _angularSpeed: 1000
-  _acceleration: 15.5
-  _deceleration: 12
-  _groundFriction: 8
+  _acceleration: 50
+  _deceleration: 25
+  _groundFriction: 3
   _useBrakingFriction: 1
   _brakingFriction: 5
   _airFriction: 0
@@ -850,7 +850,8 @@ MonoBehaviour:
   _rootMotionRotation: 0
   playerCamera: {fileID: 5791651165201209441}
   _walkSpeed: 2.5
-  _runSpeed: 7
+  _runSpeed: 9
+  yawSmoothTime: 0.01
 --- !u!1 &5791651165254880947
 GameObject:
   m_ObjectHideFlags: 0
