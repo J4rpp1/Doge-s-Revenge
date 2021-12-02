@@ -35,6 +35,8 @@ namespace ECM.Walkthrough.OverShoulderCamera
 
         private float _yaw;
         private float _yawVelocity;
+		[SerializeField]
+		float yawSmoothTime = 0.1f;
 
         #endregion
 
@@ -165,7 +167,7 @@ namespace ECM.Walkthrough.OverShoulderCamera
         {
             // Perform character (CharacterMovement component) rotation, around its Y - axis(yaw rotation)
 
-            _yaw = Mathf.SmoothDampAngle(_yaw, _targetYaw, ref _yawVelocity, 0.1f);
+            _yaw = Mathf.SmoothDampAngle(_yaw, _targetYaw, ref _yawVelocity, yawSmoothTime);
             
             movement.rotation = Quaternion.Euler(0.0f, _yaw, 0.0f);
 
