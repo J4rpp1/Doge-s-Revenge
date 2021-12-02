@@ -17,11 +17,13 @@ public class ShopMenu : MonoBehaviour
 
     public int doubleJumpBought;
     public static bool doubleJumpIsActive;
+    public bool doublejumppi;
+    
     public static bool shopActive;
 
     public GameObject shopMenuUI;
     public GameObject pressEText;
-
+     
     void Start()
     {
         gun = FindObjectOfType<Gun>();
@@ -29,10 +31,14 @@ public class ShopMenu : MonoBehaviour
         doubleJumpIsActive = false;
         playermoney = FindObjectOfType<PlayerMoney>();
         doubleJumpBought = PlayerPrefs.GetInt("DoubleJump");
-        if(doubleJumpBought > 9)
+       /* if(doubleJumpBought > 9)
         {
             doubleJumpIsActive = true;
             Debug.Log("tuplahyppy");
+        }*/
+       if(doublejumppi == true)
+        {
+            doubleJumpIsActive = true;
         }
     }
 

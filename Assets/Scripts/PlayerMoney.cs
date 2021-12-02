@@ -34,7 +34,7 @@ public class PlayerMoney : MonoBehaviour
         {
             PlayerPrefs.SetInt("PlayerMoney", moneyCount);
             yield return new WaitForSeconds(10);
-            Debug.Log("rahat tallennettu");
+            //Debug.Log("rahat tallennettu");
         }
     }
 }
