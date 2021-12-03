@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 301925178054986467}
   - component: {fileID: 301925178054986469}
   - component: {fileID: 301925178054986466}
+  - component: {fileID: -56880283783470367}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -103,9 +104,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.3288274
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.16441372, z: 0}
 --- !u!136 &301925178054986493
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -117,9 +118,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.66289854
-  m_Height: 2.1304026
+  m_Height: 2.4916666
   m_Direction: 1
-  m_Center: {x: -0.024986744, y: 0.06520128, z: 0}
+  m_Center: {x: -0.024986744, y: 0.24583328, z: 0}
 --- !u!195 &301925178054986468
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -202,6 +203,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dealDamage: 1
+--- !u!54 &-56880283783470367
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301925178054986474}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &301925178983006989
 GameObject:
   m_ObjectHideFlags: 0
