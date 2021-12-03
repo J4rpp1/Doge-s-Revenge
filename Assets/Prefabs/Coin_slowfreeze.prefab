@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: coinFreezeTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5811625053898171715, guid: fdfad2ebaab5b8e4ea1c6a14966e2ab6, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6189622851121068868, guid: fdfad2ebaab5b8e4ea1c6a14966e2ab6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7212113873497870422, guid: fdfad2ebaab5b8e4ea1c6a14966e2ab6, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Coin_slowfreeze
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfad2ebaab5b8e4ea1c6a14966e2ab6, type: 3}
