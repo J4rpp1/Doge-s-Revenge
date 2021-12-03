@@ -5,12 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour {
-    [SerializeField]
     private Animator animator;
     private string sceneToLoad;
 
-    public void FadeToLevel(string levelName) {
-        sceneToLoad = levelName;
+    public void FadeToLevel(string levelNameString) {
+        sceneToLoad = levelNameString;
         animator.SetTrigger("FadeOut");
 
     }
@@ -20,6 +19,11 @@ public class LevelChanger : MonoBehaviour {
 
     }
 
+    private void Start() {
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("FadeIn");
+
+    }
     private void Update() {
         
     }
