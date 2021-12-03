@@ -51,7 +51,16 @@ public class PauseMenu : MonoBehaviour {
 
         }
 
-        animator.SetBool("isPaused", settingPauseTo);
+        //animator.SetBool("isPaused", settingPauseTo);
+        
+        if (settingPauseTo) {
+            animator.SetTrigger("");
+        
+        }
+        else {
+            animator.SetTrigger("");
+
+        }
 
     }
 
