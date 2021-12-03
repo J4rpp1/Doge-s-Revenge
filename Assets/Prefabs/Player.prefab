@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 4488736854263250661}
   - component: {fileID: 3486530865441538748}
   - component: {fileID: 1691912700234042923}
+  - component: {fileID: 1234200904}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -457,11 +458,11 @@ MonoBehaviour:
   attackRange: 1.04
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   attackDamage: 100
   animator: {fileID: 1691912700234042923}
-  item: {fileID: 0}
-  splashParticles: {fileID: 0}
+  item: {fileID: 5146267877922213421, guid: 085cb62aeba7a1b4288fe5cf5204db8a, type: 3}
+  splashParticles: {fileID: 221748013575512047, guid: e2315e9c35e4e7642832a6d9817d6046, type: 3}
 --- !u!95 &1691912700234042923
 Animator:
   serializedVersion: 3
@@ -481,6 +482,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &1234200904
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247073411878889360}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2351897875131644662
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +617,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5791651164786902469}
   - component: {fileID: 2108246044303139011}
-  - component: {fileID: 2140574884010607681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -639,28 +655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1652995248506482191}
   moneyCount: 0
---- !u!114 &2140574884010607681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5791651164786902470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a52505ca7421e40ab08c5490ab4ea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 5791651164786902470}
-  theGameManager: {fileID: 0}
-  maxHP: 3
-  currentHP: 3
-  hearts:
-  - {fileID: 1122944129119896622}
-  - {fileID: 972308412119713227}
-  - {fileID: 6022794856791730550}
-  fullHearth: {fileID: 21300000, guid: 92aee0f3a889ca448a1432fa34408cef, type: 3}
-  emptyHearth: {fileID: 21300000, guid: ed57f4c2d85b72f4783ee1a424588b1e, type: 3}
 --- !u!1 &5791651165151209361
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +717,8 @@ GameObject:
   - component: {fileID: 5791651165201209444}
   - component: {fileID: 5791651165201209445}
   - component: {fileID: 5791651165201209446}
-  m_Layer: 0
+  - component: {fileID: 158961830}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -854,6 +849,28 @@ MonoBehaviour:
   _walkSpeed: 2.5
   _runSpeed: 9
   yawSmoothTime: 0.01
+--- !u!114 &158961830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791651165201209447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a52505ca7421e40ab08c5490ab4ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 5791651165201209447}
+  theGameManager: {fileID: 0}
+  maxHP: 3
+  currentHP: 3
+  hearts:
+  - {fileID: 1122944129119896622}
+  - {fileID: 972308412119713227}
+  - {fileID: 6022794856791730550}
+  fullHearth: {fileID: 21300000, guid: 92aee0f3a889ca448a1432fa34408cef, type: 3}
+  emptyHearth: {fileID: 21300000, guid: ed57f4c2d85b72f4783ee1a424588b1e, type: 3}
 --- !u!1 &5791651165254880947
 GameObject:
   m_ObjectHideFlags: 0

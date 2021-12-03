@@ -56,7 +56,7 @@ public class EnemyHp : MonoBehaviour, IDamageable
         var CoinAmount3 = Random.Range(0, 2);
         for (var i = 0; i < CoinAmount3; i++)
             Instantiate(coinPrefab, coinPosition3.position, Quaternion.identity);
-        var AmmoAmount = Random.Range(0, 1);
+        var AmmoAmount = Random.Range(0, 2);
         for (var i = 0; i < AmmoAmount; i++)
             Instantiate(ammoBoxPrefab, ammoBoxPosition.position, Quaternion.identity);
 
