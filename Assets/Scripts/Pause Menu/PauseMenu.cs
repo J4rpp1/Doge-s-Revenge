@@ -1,74 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using GlobalVariables;
 
 
-public class PauseMenu : MonoBehaviour
-{
-    
-    
+public class PauseMenu : MonoBehaviour {
     [SerializeField]
     public static bool isPaused = false;
-	//float pausedTime = 0.0001f;
 
     KeyCode pauseKey = KeyCode.P;
     private Animator animator;
 
+
     
     public void OnResumeButtonPressed() {
-        Unpause();
+        SetPause(false);
 
     }
+
     public void OnRestartButtonPressed() {
-        return; //not implemented
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
+
     public void OnExitToMenuButtonPressed() {
-        return; //not implemented
+        SceneManager.LoadScene("StartMenu");
+
+    }
+    
+    private void SetPause(bool settingPauseTo) {
+        isPaused = settingPauseTo;
+        
+        if (settingPauseTo) {
+            Cursor.lockState = CursorLockMode.None;
+
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
+        Cursor.visible = settingPauseTo;
+
+        if (settingPauseTo) {
+            Time.timeScale = Variables.PausedTimeScale;
+
+        }
+        else {
+            Time.timeScale = 1.0f;
+
+        }
+
+        animator.SetBool("isPaused", settingPauseTo);
 
     }
 
-    private void UpdateAnimation() {
-        animator.SetBool("isPaused", isPaused);
 
-    }
-    private void Pause() {
-        isPaused = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = Variables.PausedTimeScale; //Always use this when pausing
-
-    }
-    private void Unpause() {
-        isPaused = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1;
-
-    }
 
     private void Start() {
         animator = GetComponent<Animator>();
-        UpdateAnimation();
+        SetPause(false);
 
     }
 
     private void Update() {
-        //Time.timeScale = timeScale;
-
         if (Input.GetKeyDown(pauseKey)) {
-            if (isPaused) {
-                Unpause();
-                
-            }
-            else {
-                Pause();
-
-            }
+            SetPause(!isPaused);
 
         }
-        UpdateAnimation();
 
     }
 
