@@ -29,10 +29,10 @@ public class PauseMenu : MonoBehaviour {
 
     }
     
-    private void SetPause(bool settingPauseTo) {
-        isPaused = settingPauseTo;
+    private void SetPause(bool setTo) {
+        isPaused = setTo;
         
-        if (settingPauseTo) {
+        if (setTo) {
             Cursor.lockState = CursorLockMode.None;
 
         }
@@ -40,9 +40,9 @@ public class PauseMenu : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
 
         }
-        Cursor.visible = settingPauseTo;
+        Cursor.visible = setTo;
 
-        if (settingPauseTo) {
+        if (setTo) {
             Time.timeScale = Variables.PausedTimeScale;
 
         }
@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour {
             Time.timeScale = 1.0f;
 
         }
-        animator.SetBool("isPaused", settingPauseTo);
+        animator.SetBool("isPaused", setTo);
 
     }
 
