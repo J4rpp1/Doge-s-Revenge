@@ -535,13 +535,13 @@ namespace ECM.Controllers
                 if (ShopMenu.doubleJumpIsActive == false)
             {
                 _maxMidAirJumps = 0;
-                Debug.Log("hyppely");
+                //Debug.Log("hyppely");
             }
 
             if (ShopMenu.doubleJumpIsActive == true)
             {
                 _maxMidAirJumps = 1;
-                Debug.Log("hyppely2");
+                //Debug.Log("hyppely2");
             }
         }
 

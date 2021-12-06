@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _IceNormals:
-        m_Texture: {fileID: 2800000, guid: 36a729e4ff2fb5445805874c6d55690a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ca2c2e9bb275fe449bb0d6b99ab068e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -114,7 +114,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefractStrength: 0.1
+    - _RefractStrength: 0.02
     - _Smoothness: 0.736
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

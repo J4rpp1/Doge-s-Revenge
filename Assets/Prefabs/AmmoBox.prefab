@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2467069407306357596}
   - component: {fileID: 2467069407306357599}
   - component: {fileID: 5842977775103324400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,9 +126,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2467069409114852940}
   - component: {fileID: 5457999426027698898}
-  - component: {fileID: 7438200868843973284}
   - component: {fileID: 6704604921655176889}
-  m_Layer: 0
+  - component: {fileID: 5990237615100876831}
+  m_Layer: 9
   m_Name: AmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,29 +158,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2467069409114852943}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.05
+  m_Drag: 0.7
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7438200868843973284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2467069409114852943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc85175e72b2784790809873781f304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoBonus: 15
-  rb: {fileID: 5457999426027698898}
-  ammoFreezeTime: 0.5
 --- !u!65 &6704604921655176889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -194,6 +179,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5990237615100876831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467069409114852943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d5aefbe25f3d84a861696717d693e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoBonus: 15
 --- !u!1001 &7702861708453408812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b2fc667b15d52b44fa5ba6198b55148b, type: 3}
       propertyPath: m_Name
       value: AmmoClip
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2fc667b15d52b44fa5ba6198b55148b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2fc667b15d52b44fa5ba6198b55148b, type: 3}
