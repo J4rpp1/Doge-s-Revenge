@@ -38,6 +38,10 @@ namespace ECM.Walkthrough.OverShoulderCamera
 		[SerializeField]
 		float yawSmoothTime = 0.1f;
 
+		[SerializeField]
+		GameObject shibeMesh;
+		private Animator anim;
+
         #endregion
 
         #region PROPERTIES
@@ -105,23 +109,23 @@ namespace ECM.Walkthrough.OverShoulderCamera
         /// animations completely separate of movement controller.
         /// 
         /// </summary>
-
+		private void Start()
+		{
+			anim = shibeMesh.GetComponent<Animator>();
+		}
         protected override void Animate()
         {
-            // If no animator, return
-
-            if (animator == null)
-                return;
-
+            
             // Update the animator parameters
 
-            var forwardAmount = Mathf.InverseLerp(0.0f, runSpeed, Mathf.Abs(movement.forwardSpeed));
+            var forwardAmount = movement.forwardSpeed / runSpeed;
+			var strafeAmount = movement.strafeSpeed / runSpeed;
+            anim.SetFloat("MovementForward", forwardAmount, 0.1f, Time.deltaTime);
+            anim.SetFloat("MovementRight", strafeAmount, 0.1f, Time.deltaTime);
+            anim.SetBool("OnGround", movement.isGrounded);
 
-            //animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
-           // animator.SetBool("OnGround", movement.isGrounded);
-
-           // if (!movement.isGrounded)
-               // animator.SetFloat("Jump", movement.velocity.y, 0.1f, Time.deltaTime);
+            if (!movement.isGrounded)
+                anim.SetFloat("Jump", movement.velocity.y, 0.1f, Time.deltaTime);
         }
 
         /// <summary>

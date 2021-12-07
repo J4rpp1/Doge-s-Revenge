@@ -16,6 +16,8 @@ public class BreakableBox : MonoBehaviour, IDamageable
     public Transform ammoBoxPosition;
     public Rigidbody coinPrefab;
     public Rigidbody ammoBoxPrefab;
+	[SerializeField]
+	GameObject brokenBox;
     void Start()
     {
         currentHealth = maxHealth;
@@ -47,7 +49,7 @@ public class BreakableBox : MonoBehaviour, IDamageable
         //instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
 
 
-
+		Instantiate(brokenBox, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

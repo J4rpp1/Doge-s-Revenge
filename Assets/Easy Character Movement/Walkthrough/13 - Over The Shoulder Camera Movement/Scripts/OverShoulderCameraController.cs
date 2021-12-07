@@ -84,6 +84,8 @@ namespace OrangeTech.Cameras
 
         #endregion
 
+		public float controllerPitch;
+
         #region METHODS
 
         /// <summary>
@@ -140,6 +142,7 @@ namespace OrangeTech.Cameras
 
             _targetPitch -= Input.GetAxis("Mouse Y") * 2.0f;
             _targetPitch = ClampAngle(_targetPitch, minPitch, maxPitch);
+			controllerPitch = _targetPitch;
 
             _pitch = Mathf.SmoothDampAngle(_pitch, _targetPitch, ref _pitchVelocity, pitchDampTime);
 

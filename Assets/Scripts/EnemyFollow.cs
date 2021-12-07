@@ -16,6 +16,8 @@ public class EnemyFollow : MonoBehaviour
     public float walkPointRange;
 
     public bool playerInSightRange;
+	[SerializeField]
+	Transform head;
 
     private void Awake()
     {
@@ -58,6 +60,6 @@ public class EnemyFollow : MonoBehaviour
     private void ChasePlayer()
     {
         enemy.SetDestination(player.position);
-        transform.LookAt(player);
+        head.LookAt(player);
     }
 }

@@ -456,6 +456,11 @@ namespace ECM.Components
             get { return Vector3.Dot(velocity, transform.forward); }
         }
 
+        public float strafeSpeed
+        {
+            get { return Vector3.Dot(velocity, transform.right); }
+        }
+
         /// <summary>
         /// The character's current rotation.
         /// Setting it comply with the Rigidbody's interpolation setting.
