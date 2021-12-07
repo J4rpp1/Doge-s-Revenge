@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour {
+    [SerializeField]
+    private GameObject optionsMenu;
+
     public void OnPlayButtonPressed() {
         SceneManager.LoadScene("Game");
 
     }
     public void OnOptionsButtonPressed() {
+        optionsMenu.SetActive(true);
 
     }
     public void OnQuitButtonPressed() {
@@ -16,7 +20,5 @@ public class StartMenu : MonoBehaviour {
         Application.Quit();
 
     }
-    
-
 
 }

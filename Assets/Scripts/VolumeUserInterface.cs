@@ -4,8 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VolumeUserInterface : MonoBehaviour
-{
+public class VolumeUserInterface : MonoBehaviour {
     public Slider volumeSlider;
     public TMP_InputField volumeInputField;
 
@@ -23,8 +22,6 @@ public class VolumeUserInterface : MonoBehaviour
         volumeInputField.text = volumeInputField.text = (CurrentGameVolume * 100f).ToString("f0");
         safeText = (CurrentGameVolume * 100f).ToString("f0");
 
-        Debug.Log("The value of gameVolume has been updated to " + CurrentGameVolume.ToString() + ".");
-
     }
     public void OnPercentageInputFieldEditEnded() {
         try {
@@ -39,8 +36,6 @@ public class VolumeUserInterface : MonoBehaviour
         volumeInputField.text = (CurrentGameVolume * 100f).ToString("f0");
         safeText = (CurrentGameVolume * 100f).ToString("f0");
         volumeSlider.value = CurrentGameVolume;
-
-        Debug.Log("The value of gameVolume has been updated to " + CurrentGameVolume.ToString() + ".");
 
     }
 
