@@ -17,9 +17,10 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
         {
-            if (other.name == "Player")
+        if (other.name == "Player" && playerHp.canTakeDamage == true)
             {
                 playerHp.currentHP = playerHp.currentHP - dealDamage;
+                playerHp.canTakeDamage = false;
             }
         Instantiate(item, transform.position, transform.rotation);
 

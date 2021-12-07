@@ -13,6 +13,8 @@ public class PlayerHp : MonoBehaviour
     public int maxHP = 3;
     public int currentHP;
     public static bool isDead;
+    public bool canTakeDamage;
+    public bool takingDamage;
 
     public Image[] hearts;
     public Sprite fullHearth;
@@ -25,6 +27,8 @@ public class PlayerHp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        takingDamage = false;
+        canTakeDamage = true;
         theGameManager = FindObjectOfType<GameManager>();
         currentHP = maxHP;
         isDead = false;
@@ -40,6 +44,10 @@ public class PlayerHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canTakeDamage == false && takingDamage == false)
+        {
+            StartCoroutine(Invulnerability());
+        }
         for(int i = 0; i < hearts.Length; i++)
         {
             if(i < currentHP)
@@ -92,5 +100,14 @@ public class PlayerHp : MonoBehaviour
         //currentHP = maxHP;
 
     }
-   
+    public IEnumerator Invulnerability()
+    {
+        takingDamage = true;
+        yield return new WaitForSeconds(1);
+        canTakeDamage = true;
+        Debug.Log("Ei voi ottaa damagea");
+        takingDamage = false;
+    }
+
+
 }

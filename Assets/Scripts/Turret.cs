@@ -5,6 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+   
 
     [Header("Muokkaa ampumista")]
     public float range = 15f;
@@ -22,10 +23,11 @@ public class Turret : MonoBehaviour
     public Rigidbody bulletPrefab;
     public Transform shootPosition;
 
-
+    
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        
     }
 
     void UpdateTarget ()
