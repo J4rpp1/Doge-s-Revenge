@@ -874,6 +874,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ba4f0ddcab3241876661c838f3416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1548792716804939832}
+  volumeInputField: {fileID: 1938733377618251297}
+  currentText: 100
 --- !u!1 &8214351390928270329
 GameObject:
   m_ObjectHideFlags: 0
