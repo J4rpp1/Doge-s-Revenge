@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7205695650702594511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 80857345769191220, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8122324989914480499, guid: cd10c83bfd85ed5448ca9fce49b90ccd, type: 3}
+    - target: {fileID: 992838563307609516, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7025103293343542383, guid: cd10c83bfd85ed5448ca9fce49b90ccd, type: 3}
+    - target: {fileID: 3547495068635763304, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3199476472298393903, guid: 2ea972c61e1f48746bd8acb81b4a8e8d, type: 3}
+    - target: {fileID: 3547495069381566093, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_Name
+      value: ChurnerTurningPipeA
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547495069381566094, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835884437647382047, guid: a6dc967566164a94f80615d1ae457771, type: 3}
+      propertyPath: ShapeModule.m_Mesh
+      value: 
+      objectReference: {fileID: 3199476472298393903, guid: 2ea972c61e1f48746bd8acb81b4a8e8d, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6dc967566164a94f80615d1ae457771, type: 3}

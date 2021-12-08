@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e070057ed02144d46b81a6bfbf571e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 75
   fireRate: 1
   speed: 40
   playerTag: Player
@@ -262,7 +262,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyTurret
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 1869526522458109114}
   - component: {fileID: 6837742919624435091}
   - component: {fileID: 6306086697204220815}
+  - component: {fileID: 2960600690111125879}
   m_Layer: 0
   m_Name: Ranged_Robo_Body
   m_TagString: Untagged
@@ -428,6 +429,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2960600690111125879
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361774289560533028}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.1240001, y: 17.775002, z: 1.1240001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.0050000004, y: 1.79, z: 0.017}
+  m_TimeToStationary: 0.5
 --- !u!1 &8087179173118991297
 GameObject:
   m_ObjectHideFlags: 0
