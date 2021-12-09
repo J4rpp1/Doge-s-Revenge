@@ -5,7 +5,7 @@ public class EnemyBullet : MonoBehaviour
 {
     PlayerHp playerHp;
     public int dealDamage = 1;
-    public Rigidbody item;
+    public Transform item;
 
    
     private void Awake()

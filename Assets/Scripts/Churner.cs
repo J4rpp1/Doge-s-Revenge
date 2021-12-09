@@ -19,10 +19,12 @@ public class Churner : MonoBehaviour
 	[SerializeField]
 	float coinSpeed;
 	[SerializeField]
+	GameObject[] heatableObjects; //Every object connected to the churner that will we heated by it, such as wires and ice walls.
+	[SerializeField]
 	float churnDelay; //seconds between spewing out coins
 	[SerializeField]
 	float initialDelay; //seconds before starting spewing
-	float churnTimer;
+	float churnTimer; //internal counter
 	Animator anim;
 	ParticleSystem smokeParticles;
     void Start()
@@ -35,13 +37,23 @@ public class Churner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!churning && other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Coin churner activated!");
-			churning = true;
-			anim.SetBool("ChurnerAnimating", true);
-        }
+        if (!churning && other.gameObject.CompareTag("Player")) //placeholder: Activate churner when player touches a trigger
+		{
+			ActivateChurner();
+		}
 	}
+
+	private void ActivateChurner()
+	{
+		Debug.Log("Coin churner activated!");
+		churning = true;
+		anim.SetBool("ChurnerAnimating", true);
+		foreach (GameObject heatableObject in heatableObjects)
+		{
+			heatableObject.GetComponent<IHeatable>().Heat(); //Using an interface, Heat() all objects in array
+		}
+	}
+
 	void Update()
 	{
 		if(churning && coinsToSpawn > 0)

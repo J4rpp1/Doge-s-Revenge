@@ -908,7 +908,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": -7.0,
+        "x": -14.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -1114,7 +1114,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": -5.0,
+        "x": -15.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -2026,7 +2026,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.6000000238418579,
+    "m_Value": 0.800000011920929,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2305,11 +2305,11 @@
     },
     "m_Name": "ColdToHot",
     "m_DefaultReferenceName": "Vector1_61aa6ab51ac24c5bbfdf9164a8c3a49d",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "ColdToHot",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_Value": 0.0,
     "m_FloatType": 0,
@@ -2573,7 +2573,7 @@
     "m_Hidden": false,
     "m_Value": {
         "r": 1.0,
-        "g": 0.17671018838882447,
+        "g": 0.46219244599342348,
         "b": 0.0,
         "a": 0.0
     },
@@ -2605,8 +2605,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3331.000244140625,
-            "y": 1306.9998779296875,
+            "x": -3331.0,
+            "y": 1300.0,
             "width": 126.0,
             "height": 118.0
         }
@@ -3121,7 +3121,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 2.0,
+    "m_Value": 5.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -3812,7 +3812,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -748.0000610351563,
+            "x": -747.0,
             "y": 1176.0,
             "width": 134.0,
             "height": 34.0
@@ -4094,7 +4094,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Opacity",
     "m_StageCapability": 3,
-    "m_Value": 1.0,
+    "m_Value": 0.5,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -4136,10 +4136,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1985.000244140625,
-            "y": 1488.0001220703125,
-            "width": 208.0,
-            "height": 362.0
+            "x": -1970.0001220703125,
+            "y": 1483.0,
+            "width": 208.00001525878907,
+            "height": 362.0000305175781
         }
     },
     "m_Slots": [
@@ -4163,7 +4163,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_BlendMode": 15
+    "m_BlendMode": 9
 }
 
 {
@@ -4306,7 +4306,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": -20.0,
+        "x": 25.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -4559,8 +4559,8 @@
     "m_ShaderOutputName": "Tiling",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.12999999523162843,
-        "y": 1.850000023841858
+        "x": 0.03999999910593033,
+        "y": 0.5
     },
     "m_DefaultValue": {
         "x": 0.0,

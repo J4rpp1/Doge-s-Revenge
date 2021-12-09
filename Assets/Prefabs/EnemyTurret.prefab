@@ -145,6 +145,8 @@ MonoBehaviour:
   coinPosition2: {fileID: 254515624227418742}
   coinPosition3: {fileID: 254515625178291329}
   ammoBoxPosition: {fileID: 2232990527335287168}
+  corpsePrefab: {fileID: 254515624514378095, guid: 198e6c942ecd55448bb27f5ec897077e, type: 3}
+  destroyOnDeath: {fileID: 254515624514378095}
   speed: 1.4
   damage: 50
 --- !u!114 &254515623761718618

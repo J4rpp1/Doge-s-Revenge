@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4858,6 +4858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3547495069381566094}
+  - component: {fileID: 1147161367170405492}
   m_Layer: 0
   m_Name: ChurnerLongPipe
   m_TagString: Untagged
@@ -4882,6 +4883,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147161367170405492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547495069381566093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694b2135f78b54241a6922187f4b3bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireHeat: 0
+  wireSteamObject: {fileID: 3142889089899777759}
 --- !u!1001 &3547495068144899514
 PrefabInstance:
   m_ObjectHideFlags: 0
