@@ -54,7 +54,7 @@ public class Melee : MonoBehaviour
         if (damageable != null)
         {
             damageable.Damage();
-            Debug.Log("osuu");
+            Debug.Log("MeleeOssuu");
            // Instantiate(item, transform.position, transform.rotation); //primary particles now spawned when enemy is damaged
         }
         var firstContact = hitInfo.GetContact(0); //Get info from first contact event that happens
