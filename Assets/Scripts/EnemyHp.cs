@@ -9,6 +9,7 @@ public class EnemyHp : MonoBehaviour, IDamageable
 	public Rigidbody coinPrefab;
 	public Rigidbody ammoBoxPrefab;
 	
+	
 
 	public Transform coinPosition;
 	public Transform coinPosition2;
@@ -18,10 +19,12 @@ public class EnemyHp : MonoBehaviour, IDamageable
 	public GameObject destroyOnDeath;
 	public float speed = 1f;
 	public int damage = 50;
+	
 
 	
 	void Start()
 	{
+		
 		currentHealth = maxHealth;   
 	}
 

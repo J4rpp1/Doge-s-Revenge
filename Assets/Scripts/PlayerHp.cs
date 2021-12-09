@@ -12,7 +12,7 @@ public class PlayerHp : MonoBehaviour
     public static PlayerHp instance;
     public int maxHP = 3;
     public int currentHP;
-    public static bool isDead;
+    public bool isDead;
     public bool canTakeDamage;
     public bool takingDamage;
 
@@ -22,11 +22,14 @@ public class PlayerHp : MonoBehaviour
 
     private bool isRespawning;
     private Vector3 respawnPoint;
-   
+    Rigidbody m_Rigidbody;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody>();
         takingDamage = false;
         canTakeDamage = true;
         theGameManager = FindObjectOfType<GameManager>();
@@ -70,8 +73,10 @@ public class PlayerHp : MonoBehaviour
         if (currentHP <= 0 && isDead == false)
         {
             isDead = true;
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition;
             // Destroy(gameObject);
             Respawn();
+            
         }
     }
 

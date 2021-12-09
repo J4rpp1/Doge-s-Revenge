@@ -5,7 +5,7 @@ using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    
+    PlayerHp playerHP;
     public Rigidbody projectile;
     public float speed = 20;
     public float fireRate = 0.2f;
@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
 
     public void Awake()
     {
+        playerHP = FindObjectOfType<PlayerHp>();
         instance = this;
     }
 
@@ -32,7 +33,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         ammoText.text = "Ammo " + ammoCount.ToString();
-        if (Input.GetButton("Fire1") && canFire && ammoCount > 0 && PauseMenu.isPaused == false == ShopMenu.shopActive == false)
+        if (Input.GetButton("Fire1") && canFire && ammoCount > 0 && PauseMenu.isPaused == false == ShopMenu.shopActive == false && playerHP.isDead == false)
         {
             StartCoroutine(FireRate());
             

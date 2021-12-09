@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
+    PlayerHp playerHP;
     public Rigidbody projectile;
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -18,6 +19,7 @@ public class Melee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerHP = FindObjectOfType<PlayerHp>();
         canMelee = true;
         m_Collider = GetComponent<Collider>();
     }
@@ -25,7 +27,7 @@ public class Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2") && canMelee)
+        if (Input.GetButton("Fire2") && canMelee && playerHP.isDead == false)
         {
            StartCoroutine (Attack());
         }
