@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float hitPoint;
     public Rigidbody item;
 	public Transform splashParticles;
+    public float destroy = 5f;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(destroy);
         Destroy(gameObject);
     }
 }

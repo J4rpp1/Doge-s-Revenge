@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
-
+    public Rigidbody projectile;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -13,8 +13,8 @@ public class Melee : MonoBehaviour
     private bool canMelee;
     Collider m_Collider;
     public Rigidbody item;
-    public Transform splashParticles;
-
+    public Transform meleePoint;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,8 @@ public class Melee : MonoBehaviour
     {
         canMelee = false;
         animator.SetTrigger("Attack");
-        m_Collider.enabled = true;
+        Instantiate(projectile,meleePoint.position, Quaternion.identity);
+        //Collider.enabled = true;
 
         /*Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
@@ -46,9 +47,9 @@ public class Melee : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
         canMelee = true;
-        m_Collider.enabled = false;
+        //Collider.enabled = false;
     }
-    private void OnCollisionEnter(Collision hitInfo) //using parameter Collision instead of Collider to use GetContact
+   /*private void OnCollisionEnter(Collision hitInfo) //using parameter Collision instead of Collider to use GetContact
     {
         IDamageable damageable = hitInfo.collider.GetComponent<IDamageable>();
         if (damageable != null)
@@ -59,7 +60,7 @@ public class Melee : MonoBehaviour
         }
         var firstContact = hitInfo.GetContact(0); //Get info from first contact event that happens
         Instantiate(splashParticles, firstContact.point, Quaternion.LookRotation(firstContact.normal, Vector3.up));
-    }
+    }*/
 
       /*  private void OnDrawGizmosSelected()
     {
