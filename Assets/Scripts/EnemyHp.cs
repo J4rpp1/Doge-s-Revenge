@@ -37,7 +37,7 @@ public class EnemyHp : MonoBehaviour, IDamageable
 	public void Damage()
 	{
 		currentHealth -= damage;
-		Debug.Log("paska");
+		
 
 		if(currentHealth <= 0)
 		{

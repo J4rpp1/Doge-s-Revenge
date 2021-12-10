@@ -6,6 +6,7 @@ public class CoinDrop : MonoBehaviour
 {
     PlayerMoney playermoney;
     public int coinBonus = 1;
+   
     private void Awake()
     {
         playermoney = FindObjectOfType<PlayerMoney>();
@@ -16,6 +17,7 @@ public class CoinDrop : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            PlayerMoney.instance.PickupSound();
             playermoney.moneyCount = playermoney.moneyCount + coinBonus;
             Destroy(gameObject);
         }

@@ -16,6 +16,7 @@ public class AmmoDrop : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             gun.ammoCount = gun.ammoCount + ammoBonus;
+            Gun.instance.PickupSound();
             Destroy(gameObject);
         }
     }

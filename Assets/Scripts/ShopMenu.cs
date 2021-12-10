@@ -10,7 +10,7 @@ public class ShopMenu : MonoBehaviour
     PlayerMoney playermoney;
     Gun gun;
     public bool canOpen;
-    public int doubleJumpCost = 300;
+    public int doubleJumpCost = 800;
     public int ammoCost = 10;
    
     public int ammoBonus = 15;
@@ -88,7 +88,7 @@ public class ShopMenu : MonoBehaviour
 
     public void DoubleJump()
     {
-        if (doubleJumpBought < 10 && playermoney.moneyCount > 300)
+        if (doubleJumpBought < 10 && playermoney.moneyCount > 800)
         {
             playermoney.moneyCount = playermoney.moneyCount - doubleJumpCost;
             PlayerPrefs.SetInt("DoubleJump", 10);

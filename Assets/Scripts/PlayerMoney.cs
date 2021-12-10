@@ -8,6 +8,7 @@ public class PlayerMoney : MonoBehaviour
     public TMP_Text moneyText;
     public int moneyCount;
     public static PlayerMoney instance;
+    public AudioSource collect;
 
 
     private void Start()
@@ -28,6 +29,10 @@ public class PlayerMoney : MonoBehaviour
         
     }
 
+    public void PickupSound()
+    {
+        collect.Play();
+    }
     IEnumerator MoneySave()
     {
         while (true)

@@ -8,6 +8,7 @@ using Random=UnityEngine.Random;
 public class Churner : MonoBehaviour
 {
     bool churning = false;
+	public AudioSource churmingSound;
 	[SerializeField]
 	Transform coinSpawnPoint;
 	[SerializeField]
@@ -48,6 +49,7 @@ public class Churner : MonoBehaviour
 		Debug.Log("Coin churner activated!");
 		churning = true;
 		anim.SetBool("ChurnerAnimating", true);
+		churmingSound.Play();
 		foreach (GameObject heatableObject in heatableObjects)
 		{
 			heatableObject.GetComponent<IHeatable>().Heat(); //Using an interface, Heat() all objects in array

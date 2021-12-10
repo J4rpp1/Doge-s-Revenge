@@ -28,6 +28,7 @@ public class AmmoBox : MonoBehaviour
     {
         if (other.name=="Player")
         {
+            Gun.instance.PickupSound();
             gun.ammoCount = gun.ammoCount + ammoBonus;
             Destroy(gameObject);
         }
