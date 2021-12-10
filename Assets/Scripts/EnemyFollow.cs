@@ -26,7 +26,7 @@ public class EnemyFollow : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         if (!playerInSightRange) Patroling();
