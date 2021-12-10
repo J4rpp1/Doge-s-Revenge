@@ -23,6 +23,8 @@ public class PlayerHp : MonoBehaviour
     private bool isRespawning;
     private Vector3 respawnPoint;
     Rigidbody m_Rigidbody;
+	[SerializeField]
+	bool startAtCheckPoint;
     
 
 
@@ -35,7 +37,8 @@ public class PlayerHp : MonoBehaviour
         theGameManager = FindObjectOfType<GameManager>();
         currentHP = maxHP;
         isDead = false;
-        thePlayer.transform.position = theGameManager.respawnPoint;
+		if(startAtCheckPoint)
+        	thePlayer.transform.position = theGameManager.respawnPoint;
         
     }
 

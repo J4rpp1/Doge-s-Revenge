@@ -35,7 +35,6 @@ public class ChurnerWire : MonoBehaviour, IHeatable
 			SetTemperature();
 			if(temperature == hot)
 				turnUpHeat = false;
-				Debug.Log("wire heating complete");
 		}
 	}
 
@@ -44,7 +43,6 @@ public class ChurnerWire : MonoBehaviour, IHeatable
 		foreach (MeshRenderer rend in meshRenderers)
 		{
 			rend.material.SetFloat("ColdToHot", temperature); //sets temperature of first material of every mesh renderer. probably not optimized.
-			Debug.Log("temperature: "+temperature);
 
 		}
 	}

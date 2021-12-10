@@ -120,11 +120,15 @@ MonoBehaviour:
   range: 75
   fireRate: 1
   speed: 40
+  aimVerticalOffsetMultiplier: 1
   playerTag: Player
   partToRotate: {fileID: 254515623761718620}
   turnSpeed: 10
   bulletPrefab: {fileID: 923205671928366290, guid: 53c1d117ac9c4ca45920d2fe956d1cb5, type: 3}
   shootPosition: {fileID: 254515623832683433}
+  lineMask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!114 &254515623761718619
 MonoBehaviour:
   m_ObjectHideFlags: 0

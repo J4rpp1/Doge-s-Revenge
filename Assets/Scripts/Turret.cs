@@ -5,6 +5,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+	private GameObject[] players;
+	Vector3 aimVerticalOffset;
    
 
     [Header("Muokkaa ampumista")]
@@ -12,6 +14,7 @@ public class Turret : MonoBehaviour
     public float fireRate = 0.3f;
     private float fireCountdown = 0f;
     public float speed = 20f;
+	[SerializeField] float aimVerticalOffsetMultiplier = 1f;
 
 
     [Header("Muista")]
@@ -23,17 +26,21 @@ public class Turret : MonoBehaviour
     public Rigidbody bulletPrefab;
     public Transform shootPosition;
 
+    [Header("Linecast")]
+	[SerializeField] LayerMask lineMask;
     
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+		aimVerticalOffset = Vector3.up * aimVerticalOffsetMultiplier;
         
     }
 
     void UpdateTarget ()
     {
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+        
+		players = GameObject.FindGameObjectsWithTag(playerTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestPlayer = null;
         foreach (GameObject player in players)
@@ -61,7 +68,7 @@ public class Turret : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.position + aimVerticalOffset - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler (rotation.x, rotation.y, 0f);
@@ -78,9 +85,14 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        // Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
-        instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+		RaycastHit hit;
+		if (!Physics.Linecast(transform.position, target.position + aimVerticalOffset, out hit, lineMask))
+		{
+			Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
+			instantiatedProjectile.velocity = (target.position + aimVerticalOffset - shootPosition.position).normalized * speed;
+			Debug.DrawLine(transform.position, target.position + aimVerticalOffset, Color.blue, 1f);
+
+		}
     }
 
     private void OnDrawGizmosSelected()
