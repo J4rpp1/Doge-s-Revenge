@@ -5,43 +5,70 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeUserInterface : MonoBehaviour {
-    public Slider volumeSlider;
-    public TMP_InputField volumeInputField;
+    [SerializeField]
+    private Slider volumeSlider;
+    [SerializeField]
+    private TMP_InputField volumeInputField;
+    [SerializeField]
+    private string volumePrefKey = "CurrentGameVolume";
 
     public float CurrentGameVolume { get; private set; } = 1;
     [SerializeField]
-    private string currentText = "100";
+    private string currentText;
     private string safeText;
 
 
 
 
 
-    public void OnVolumeSliderValueChanged() {
-        CurrentGameVolume = volumeSlider.value;
-        volumeInputField.text = volumeInputField.text = (CurrentGameVolume * 100f).ToString("f0");
-        safeText = (CurrentGameVolume * 100f).ToString("f0");
+    private float GetVolumeSliderValue() {
+        return volumeSlider.value;
 
     }
-    public void OnPercentageInputFieldEditEnded() {
+    private float GetPercentageInputFieldValue() {
+        float output;
         try {
-            CurrentGameVolume = float.Parse(volumeInputField.text) * (1f / 100f);
+            output = float.Parse(volumeInputField.text) * (1f / 100f);
 
         }
         catch (System.Exception) {
-            CurrentGameVolume = float.Parse(safeText) * (1f / 100f);
+            output = float.Parse(safeText) * (1f / 100f);
 
         }
+        return output;
 
-        volumeInputField.text = (CurrentGameVolume * 100f).ToString("f0");
-        safeText = (CurrentGameVolume * 100f).ToString("f0");
+    }
+
+    public void OnVolumeSliderValueChanged() {
+        CurrentGameVolume = GetVolumeSliderValue();
+        OnCurrentGameVolumeChanged();
+
+
+    }
+    public void OnPercentageInputFieldEditEnded() {
+        CurrentGameVolume = GetPercentageInputFieldValue();
+        OnCurrentGameVolumeChanged();
+
+    }
+    private void OnCurrentGameVolumeChanged() {
+        string formatted = (CurrentGameVolume * 100f).ToString("f0");
+        safeText = formatted;
+        volumeInputField.text = formatted;
         volumeSlider.value = CurrentGameVolume;
+
+
+        PlayerPrefs.SetFloat(key: volumePrefKey, value: CurrentGameVolume);
+
+        // bad way to do this
+        PlayerPrefs.Save();
 
     }
 
     private void Start() {
-        currentText = (CurrentGameVolume * 100f).ToString("f0");
+        currentText = (PlayerPrefs.GetFloat(key: volumePrefKey, defaultValue: 1.0f) * 100f).ToString("f0");
         safeText = currentText;
+        volumeInputField.text = currentText;
+        volumeSlider.value = PlayerPrefs.GetFloat(key: volumePrefKey, defaultValue: 1.0f);
 
         volumeSlider.onValueChanged.AddListener(delegate {
             OnVolumeSliderValueChanged();
@@ -49,9 +76,7 @@ public class VolumeUserInterface : MonoBehaviour {
         volumeInputField.onEndEdit.AddListener(delegate {
             OnPercentageInputFieldEditEnded();
         });
-
-        volumeInputField.text = currentText;
-
+        
     }
 
 }
