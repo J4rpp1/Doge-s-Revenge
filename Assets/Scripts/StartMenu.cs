@@ -8,7 +8,8 @@ public class StartMenu : MonoBehaviour {
     private GameObject optionsMenu;
 
     public void OnPlayButtonPressed() {
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("Game");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load next scene
 
     }
     public void OnOptionsButtonPressed() {

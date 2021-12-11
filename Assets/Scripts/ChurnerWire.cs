@@ -5,8 +5,8 @@ using UnityEngine;
 public class ChurnerWire : MonoBehaviour, IHeatable
 {
 	public float wireHeat;
-	[SerializeField]
-	GameObject wireSteamObject;
+	[SerializeField] GameObject wireSteamObject;
+	[SerializeField] bool haveParticles = true;
 	ParticleSystem wireSteam;
 	bool turnUpHeat;
 	public Component[] meshRenderers;
@@ -18,13 +18,15 @@ public class ChurnerWire : MonoBehaviour, IHeatable
 
 	void Start()
 	{
-		wireSteam = wireSteamObject.GetComponent<ParticleSystem>();
+		if(haveParticles)
+			wireSteam = wireSteamObject.GetComponent<ParticleSystem>();
 		meshRenderers = GetComponentsInChildren<MeshRenderer>();
 	}
 
 	public void Heat()
 	{
-		wireSteam.Play();
+		if(haveParticles)
+			wireSteam.Play();
 		turnUpHeat = true;
 	}
 	void Update()

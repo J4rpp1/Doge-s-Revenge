@@ -8,6 +8,7 @@ using Random=UnityEngine.Random;
 public class Churner : MonoBehaviour
 {
     bool churning = false;
+	bool canActivate;
 	public AudioSource churmingSound;
 	[SerializeField]
 	Transform coinSpawnPoint;
@@ -19,6 +20,8 @@ public class Churner : MonoBehaviour
 	int coinsToSpawn;
 	[SerializeField]
 	float coinSpeed;
+	[SerializeField]
+    GameObject pressEText;
 	[SerializeField]
 	GameObject[] heatableObjects; //Every object connected to the churner that will we heated by it, such as wires and ice walls.
 	[SerializeField]
@@ -33,17 +36,26 @@ public class Churner : MonoBehaviour
         churnTimer = initialDelay;
 		anim = GetComponent<Animator>();
 		smokeParticles = smokeObject.GetComponent<ParticleSystem>();
+	 canActivate = false;
 
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!churning && other.gameObject.CompareTag("Player")) //placeholder: Activate churner when player touches a trigger
+        if (!churning && other.gameObject.CompareTag("Player"))
 		{
-			ActivateChurner();
+            canActivate = true;
+            pressEText.SetActive(true);
 		}
 	}
-
+    void OnTriggerExit(Collider other)
+    {
+        if (!churning && other.gameObject.CompareTag("Player"))
+		{
+            canActivate = false;
+            pressEText.SetActive(false);
+		}
+	}
 	private void ActivateChurner()
 	{
 		Debug.Log("Coin churner activated!");
@@ -64,6 +76,13 @@ public class Churner : MonoBehaviour
 			SpawnCoin();
 			StartParticles();
 		}
+
+	if (Input.GetKeyDown(KeyCode.E) && canActivate == true && !churning)
+        {
+            ActivateChurner();
+			canActivate = false;
+            pressEText.SetActive(false);
+        }
 	}
 
 	void SpawnCoin()

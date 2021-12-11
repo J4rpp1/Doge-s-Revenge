@@ -6,14 +6,18 @@ public class PortalLight : MonoBehaviour, IHeatable
 {
     MeshRenderer rend;
 	[SerializeField] Material hotMaterial;
+	[SerializeField] GameObject endPlatform;
+	EndPlatform endPlatformScript;
     void Start()
     {
         rend = GetComponent<MeshRenderer>();
+		endPlatformScript = endPlatform.GetComponent<EndPlatform>();
     }
 
     // Update is called once per frame
     public void Heat()
     {
         rend.material = hotMaterial;
+		endPlatformScript.Overcharge();
     }
 }
