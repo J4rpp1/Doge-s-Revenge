@@ -10,24 +10,15 @@ public class Churner : MonoBehaviour
     bool churning = false;
 	bool canActivate;
 	public AudioSource churmingSound;
-	[SerializeField]
-	Transform coinSpawnPoint;
-	[SerializeField]
-	Rigidbody coinPrefab;
-	[SerializeField]
-	GameObject smokeObject;
-	[SerializeField]
-	int coinsToSpawn;
-	[SerializeField]
-	float coinSpeed;
-	[SerializeField]
-    GameObject pressEText;
-	[SerializeField]
-	GameObject[] heatableObjects; //Every object connected to the churner that will we heated by it, such as wires and ice walls.
-	[SerializeField]
-	float churnDelay; //seconds between spewing out coins
-	[SerializeField]
-	float initialDelay; //seconds before starting spewing
+	[SerializeField] Transform coinSpawnPoint;
+	[SerializeField] Rigidbody coinPrefab;
+	[SerializeField] GameObject smokeObject;
+	[SerializeField] int coinsToSpawn;
+	[SerializeField] float coinSpeed;
+	[SerializeField] GameObject pressEText;
+	[SerializeField] GameObject[] heatableObjects; //Every object connected to the churner that will we heated by it, such as wires and ice walls.
+	[SerializeField] float churnDelay; //seconds between spewing out coins
+	[SerializeField] float initialDelay; //seconds before starting spewing
 	float churnTimer; //internal counter
 	Animator anim;
 	ParticleSystem smokeParticles;
@@ -65,6 +56,18 @@ public class Churner : MonoBehaviour
 		foreach (GameObject heatableObject in heatableObjects)
 		{
 			heatableObject.GetComponent<IHeatable>().Heat(); //Using an interface, Heat() all objects in array
+		}
+	}
+	public void StartActive()
+	{
+		Debug.Log("Coin churner starts activated!");
+		churning = true;
+		coinsToSpawn = 0;
+		anim.SetTrigger("SkipStart");
+		churmingSound.Play();
+		foreach (GameObject heatableObject in heatableObjects)
+		{
+			heatableObject.GetComponent<IHeatable>().PreHeat(); //Using an interface, Heat() all objects in array
 		}
 	}
 
