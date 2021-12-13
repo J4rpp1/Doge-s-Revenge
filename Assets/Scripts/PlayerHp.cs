@@ -15,7 +15,7 @@ public class PlayerHp : MonoBehaviour
     public bool isDead;
     public bool canTakeDamage;
     public bool takingDamage;
-
+    public Animator animator;
     public Image[] hearts;
     public Sprite fullHearth;
     public Sprite emptyHearth;
@@ -77,6 +77,7 @@ public class PlayerHp : MonoBehaviour
         {
             isDead = true;
             m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+            animator.SetTrigger("Dead");
             // Destroy(gameObject);
             Respawn();
             

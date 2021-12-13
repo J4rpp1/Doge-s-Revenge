@@ -3461,6 +3461,7 @@ MonoBehaviour:
   isDead: 0
   canTakeDamage: 0
   takingDamage: 0
+  animator: {fileID: 2043978556055141541}
   hearts:
   - {fileID: 1122944129119896622}
   - {fileID: 972308412119713227}
