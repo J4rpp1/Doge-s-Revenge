@@ -29,6 +29,13 @@ public class ChurnerWire : MonoBehaviour, IHeatable
 			wireSteam.Play();
 		turnUpHeat = true;
 	}
+	public void PreHeat()
+	{
+		if(haveParticles)
+			wireSteam.Play();
+		turnUpHeat = true;
+		temperature = hot;
+	}
 	void Update()
 	{
 		if(turnUpHeat)

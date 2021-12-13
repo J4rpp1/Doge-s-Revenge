@@ -21,10 +21,14 @@ public class IceMelt : MonoBehaviour, IHeatable
 		dropParticles.Play();
 		StartCoroutine("Destroy");
 	}
+	public void PreHeat()
+	{
+		Destroy(gameObject);
+	}
 	
-    IEnumerator Destroy()
-    {
-        yield return new WaitForSeconds(meltTime);
-        Destroy(gameObject);
-    }
+	IEnumerator Destroy()
+	{
+		yield return new WaitForSeconds(meltTime);
+		Destroy(gameObject);
+	}
 }

@@ -20,4 +20,9 @@ public class PortalLight : MonoBehaviour, IHeatable
         rend.material = hotMaterial;
 		endPlatformScript.Overcharge();
     }
+	public void PreHeat()
+    {
+        rend.material = hotMaterial;
+		endPlatformScript.Overcharge();
+    }
 }
