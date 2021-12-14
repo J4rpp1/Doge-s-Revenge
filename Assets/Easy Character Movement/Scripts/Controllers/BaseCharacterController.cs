@@ -16,7 +16,7 @@ namespace ECM.Controllers
     public class BaseCharacterController : MonoBehaviour
     {
         #region EDITOR EXPOSED FIELDS
-
+        ShopMenu shopMenu;
         [Header("Movement")]
         [Tooltip("Maximum movement speed (in m/s).")]
         [SerializeField]
@@ -530,19 +530,9 @@ namespace ECM.Controllers
             }
         }
 
-        private void Start()
+        void Start()
         {
-                if (ShopMenu.doubleJumpIsActive == false)
-            {
-                _maxMidAirJumps = 0;
-                //Debug.Log("hyppely");
-            }
-
-            if (ShopMenu.doubleJumpIsActive == true)
-            {
-                _maxMidAirJumps = 1;
-                //Debug.Log("hyppely2");
-            }
+           
         }
 
         /// <summary>
@@ -918,6 +908,14 @@ namespace ECM.Controllers
         public virtual void Awake()
         {
             // Cache components
+            
+            shopMenu = FindObjectOfType<ShopMenu>();
+            if (shopMenu.doubleJumpIsActive == false)
+            {
+                _maxMidAirJumps = 0;
+                Debug.Log("tuplahyppy pois");
+            }
+
            
             movement = GetComponent<CharacterMovement>();
             movement.platformUpdatesRotation = true;
@@ -932,6 +930,11 @@ namespace ECM.Controllers
             // Pause / resume character
 
             Pause();
+            if (shopMenu.doubleJumpIsActive == true)
+            {
+                _maxMidAirJumps = 1;
+                
+            }
 
             // If paused, return
 

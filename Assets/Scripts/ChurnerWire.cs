@@ -7,7 +7,7 @@ public class ChurnerWire : MonoBehaviour, IHeatable
 	public float wireHeat;
 	[SerializeField] GameObject wireSteamObject;
 	[SerializeField] bool haveParticles = true;
-	ParticleSystem wireSteam;
+    ParticleSystem wireSteam;
 	bool turnUpHeat;
 	public Component[] meshRenderers;
 	float heatSpeed = .2f;

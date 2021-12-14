@@ -5187,7 +5187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207, y: 0.000015259}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0.000030517578}
   m_SizeDelta: {x: 1920, y: 842.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8605696901555461879
@@ -5579,7 +5579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy for 800
+  m_text: Buy for 200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6037,11 +6037,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcd50834d84c4e4688433a4ad5797a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}
   canOpen: 0
-  doubleJumpCost: 300
+  doubleJumpCost: 200
   ammoCost: 10
   ammoBonus: 15
   doubleJumpBought: 1
+  doubleJumpIsActive: 0
   doublejumppi: 1
   shopMenuUI: {fileID: 8630144957414184350}
   pressEText: {fileID: 680139057206903998}

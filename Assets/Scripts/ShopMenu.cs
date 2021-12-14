@@ -9,14 +9,15 @@ public class ShopMenu : MonoBehaviour
 {
     PlayerMoney playermoney;
     Gun gun;
+    public ShopMenu instance;
     public bool canOpen;
-    public int doubleJumpCost = 800;
+    public int doubleJumpCost = 200;
     public int ammoCost = 10;
    
     public int ammoBonus = 15;
 
     public int doubleJumpBought;
-    public static bool doubleJumpIsActive;
+    public  bool doubleJumpIsActive;
     public bool doublejumppi;
     
     public static bool shopActive;
@@ -26,20 +27,21 @@ public class ShopMenu : MonoBehaviour
      
     void Start()
     {
+        instance = this;
         gun = FindObjectOfType<Gun>();
         canOpen = false;
         doubleJumpIsActive = false;
         playermoney = FindObjectOfType<PlayerMoney>();
         doubleJumpBought = PlayerPrefs.GetInt("DoubleJump");
-       /* if(doubleJumpBought > 9)
+        if(doubleJumpBought > 9)
         {
             doubleJumpIsActive = true;
             Debug.Log("tuplahyppy");
-        }*/
-       if(doublejumppi == true)
+        }
+      /* if(doublejumppi == true)
         {
             doubleJumpIsActive = true;
-        }
+        }*/
     }
 
     public void Update()
@@ -88,7 +90,7 @@ public class ShopMenu : MonoBehaviour
 
     public void DoubleJump()
     {
-        if (doubleJumpBought < 10 && playermoney.moneyCount > 800)
+        if (doubleJumpBought < 10 && playermoney.moneyCount > 200)
         {
             playermoney.moneyCount = playermoney.moneyCount - doubleJumpCost;
             PlayerPrefs.SetInt("DoubleJump", 10);

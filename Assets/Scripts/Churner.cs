@@ -9,6 +9,7 @@ public class Churner : MonoBehaviour
 {
     bool churning = false;
 	bool canActivate;
+	public int save;
 	public AudioSource churmingSound;
 	[SerializeField] Transform coinSpawnPoint;
 	[SerializeField] Rigidbody coinPrefab;
@@ -17,17 +18,24 @@ public class Churner : MonoBehaviour
 	[SerializeField] float coinSpeed;
 	[SerializeField] GameObject pressEText;
 	[SerializeField] GameObject[] heatableObjects; //Every object connected to the churner that will we heated by it, such as wires and ice walls.
+	
 	[SerializeField] float churnDelay; //seconds between spewing out coins
 	[SerializeField] float initialDelay; //seconds before starting spewing
 	float churnTimer; //internal counter
-	Animator anim;
+	public Animator anim;
 	ParticleSystem smokeParticles;
+	
     void Start()
     {
-        churnTimer = initialDelay;
+		save = PlayerPrefs.GetInt("Save1");
+		churnTimer = initialDelay;
 		anim = GetComponent<Animator>();
 		smokeParticles = smokeObject.GetComponent<ParticleSystem>();
 	 canActivate = false;
+		if(save>1)
+        {
+			StartCoroutine(Wait());
+        }
 
     }
 
@@ -56,7 +64,9 @@ public class Churner : MonoBehaviour
 		foreach (GameObject heatableObject in heatableObjects)
 		{
 			heatableObject.GetComponent<IHeatable>().Heat(); //Using an interface, Heat() all objects in array
+			PlayerPrefs.SetInt("Save1", 2);
 		}
+		
 	}
 	public void StartActive()
 	{
@@ -64,13 +74,13 @@ public class Churner : MonoBehaviour
 		churning = true;
 		coinsToSpawn = 0;
 		anim.SetTrigger("SkipStart");
-		churmingSound.Play();
+		
 		foreach (GameObject heatableObject in heatableObjects)
 		{
 			heatableObject.GetComponent<IHeatable>().PreHeat(); //Using an interface, Heat() all objects in array
 		}
 	}
-
+	
 	void Update()
 	{
 		if(churning && coinsToSpawn > 0)
@@ -82,7 +92,8 @@ public class Churner : MonoBehaviour
 
 	if (Input.GetKeyDown(KeyCode.E) && canActivate == true && !churning)
         {
-            ActivateChurner();
+			// ActivateChurner();
+			ActivateChurner();
 			canActivate = false;
             pressEText.SetActive(false);
         }
@@ -103,4 +114,9 @@ public class Churner : MonoBehaviour
 		if(!smokeParticles.isPlaying)
 		smokeParticles.Play();
 	}
+	IEnumerator Wait()
+    {
+		yield return new WaitForSeconds(1);
+		StartActive();
+    }
 }
