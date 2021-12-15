@@ -10,10 +10,11 @@ public class Churner : MonoBehaviour
     bool churning = false;
 	bool canActivate;
 	public int save;
-	public AudioSource churmingSound;
+	//public AudioSource churmingSound;
 	[SerializeField] Transform coinSpawnPoint;
 	[SerializeField] Rigidbody coinPrefab;
 	[SerializeField] GameObject smokeObject;
+	[SerializeField] int churnerSaveSlot;
 	[SerializeField] int coinsToSpawn;
 	[SerializeField] float coinSpeed;
 	[SerializeField] GameObject pressEText;
@@ -27,11 +28,11 @@ public class Churner : MonoBehaviour
 	
     void Start()
     {
-		save = PlayerPrefs.GetInt("Save1");
 		churnTimer = initialDelay;
 		anim = GetComponent<Animator>();
 		smokeParticles = smokeObject.GetComponent<ParticleSystem>();
-	 canActivate = false;
+	 	canActivate = false;
+		GetSaveState();
 		if(save>1)
         {
 			StartCoroutine(Wait());
@@ -39,7 +40,8 @@ public class Churner : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+
+	void OnTriggerEnter(Collider other)
     {
         if (!churning && other.gameObject.CompareTag("Player"))
 		{
@@ -60,11 +62,11 @@ public class Churner : MonoBehaviour
 		Debug.Log("Coin churner activated!");
 		churning = true;
 		anim.SetBool("ChurnerAnimating", true);
-		churmingSound.Play();
+		//churmingSound.Play();
+		SetSaveState();
 		foreach (GameObject heatableObject in heatableObjects)
 		{
 			heatableObject.GetComponent<IHeatable>().Heat(); //Using an interface, Heat() all objects in array
-			PlayerPrefs.SetInt("Save1", 2);
 		}
 		
 	}
@@ -119,4 +121,56 @@ public class Churner : MonoBehaviour
 		yield return new WaitForSeconds(1);
 		StartActive();
     }
+	void GetSaveState()
+	{
+		switch (churnerSaveSlot)
+		{
+			case 0:
+				Debug.LogError("0 is not a valid churner save slot to loead at "+gameObject);
+				break;
+			case 1:
+				save = PlayerPrefs.GetInt("Save1");
+				break;
+			case 2:
+				save = PlayerPrefs.GetInt("Save2");
+				break;
+			case 3:
+				save = PlayerPrefs.GetInt("Save3");
+				break;
+			case 4:
+				save = PlayerPrefs.GetInt("Save4");
+				break;
+			case 5:
+				save = PlayerPrefs.GetInt("Save5");
+				break;
+			default:
+				break;
+		}
+	}
+	void SetSaveState()
+	{
+		switch (churnerSaveSlot)
+		{
+			case 0:
+				Debug.LogError("0 is not a valid churner save slot to save at "+gameObject);
+				break;
+			case 1:
+				PlayerPrefs.SetInt("Save1", 2);
+				break;
+			case 2:
+				PlayerPrefs.SetInt("Save2", 2);
+				break;
+			case 3:
+				PlayerPrefs.SetInt("Save3", 2);
+				break;
+			case 4:
+				PlayerPrefs.SetInt("Save4", 2);
+				break;
+			case 5:
+				PlayerPrefs.SetInt("Save5", 2);
+				break;
+			default:
+				break;
+		}
+	}
 }

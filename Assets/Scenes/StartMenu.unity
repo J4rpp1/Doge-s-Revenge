@@ -2246,7 +2246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4131,15 +4131,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8207547, g: 0.36528096, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: eda990891c2617543b6df064b75bd1c2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4229,7 +4229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4422,7 +4422,7 @@ RectTransform:
   m_GameObject: {fileID: 7916547936944995413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.04, y: 8.1826, z: 1}
+  m_LocalScale: {x: 11.398666, y: 6.9460454, z: 1}
   m_Children: []
   m_Father: {fileID: 7916547937859056191}
   m_RootOrder: 0
@@ -4471,7 +4471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13660863, g: 0.11160557, b: 0.7169812, a: 1}
+  m_Color: {r: 0.011865417, g: 0, b: 0.09433961, a: 0.7372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4760,7 +4760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6832091206539787952, guid: 1d9a3c36ed163e04e86b8bc76ddad184, type: 3}
       propertyPath: m_AnchoredPosition.y
