@@ -11,7 +11,7 @@ public class ShopMenu : MonoBehaviour
     Gun gun;
     public ShopMenu instance;
     public bool canOpen;
-    public int doubleJumpCost = 200;
+    public int doubleJumpCost = 100;
     public int ammoCost = 10;
    
     public int ammoBonus = 15;
@@ -48,7 +48,7 @@ public class ShopMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canOpen == true)
         {
-            Debug.Log("kauppa auki");
+            //Debug.Log("kauppa auki");
             shopMenuUI.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -62,7 +62,7 @@ public class ShopMenu : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            Debug.Log("kauppa");
+            //Debug.Log("kauppa");
             canOpen = true;
             pressEText.SetActive(true);
         }
@@ -72,7 +72,7 @@ public class ShopMenu : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            Debug.Log("kauppa kii");
+            //Debug.Log("kauppa kii");
             canOpen = false;
             pressEText.SetActive(false);
         }
@@ -90,17 +90,18 @@ public class ShopMenu : MonoBehaviour
 
     public void DoubleJump()
     {
-        if (doubleJumpBought < 10 && playermoney.moneyCount > 200)
+        if (doubleJumpBought < 10 && playermoney.moneyCount >= doubleJumpCost)
         {
             playermoney.moneyCount = playermoney.moneyCount - doubleJumpCost;
             PlayerPrefs.SetInt("DoubleJump", 10);
             doubleJumpIsActive = true;
+			FindObjectOfType<ECM.Controllers.BaseCharacterController>().EnableDoubleJump();
         }
     }
 
     public void Ammo()
     {
-        if (playermoney.moneyCount > 10)
+        if (playermoney.moneyCount >= 10)
         {
             playermoney.moneyCount = playermoney.moneyCount - ammoCost;
             gun.ammoCount = gun.ammoCount + ammoBonus;

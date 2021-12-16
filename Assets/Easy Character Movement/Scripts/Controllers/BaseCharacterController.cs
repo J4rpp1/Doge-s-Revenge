@@ -913,7 +913,7 @@ namespace ECM.Controllers
             if (shopMenu.doubleJumpIsActive == false)
             {
                 _maxMidAirJumps = 0;
-                Debug.Log("tuplahyppy pois");
+                //Debug.Log("tuplahyppy pois");
             }
 
            
@@ -925,21 +925,26 @@ namespace ECM.Controllers
             rootMotionController = GetComponentInChildren<RootMotionController>();
         }
 
+		public void EnableDoubleJump()
+		{
+			_maxMidAirJumps = 1;
+		}
+
         public virtual void FixedUpdate()
         {
             // Pause / resume character
 
-            Pause();
-            if (shopMenu.doubleJumpIsActive == true)
+            //Pause();
+/*             if (shopMenu.doubleJumpIsActive == true)
             {
                 _maxMidAirJumps = 1;
                 
-            }
+            } */
 
             // If paused, return
 
-            if (isPaused)
-                return;
+            /* if (isPaused)
+                return; */
 
             // Perform character movement
 

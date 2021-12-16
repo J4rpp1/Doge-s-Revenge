@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PersistentMusic : MonoBehaviour
 {
+	[Header("0 = intro")]
+	[Header("1 = explore music")]
+	[Header("2 = action music ")]
 	private static PersistentMusic _instance;
 	public static PersistentMusic Instance { get { return _instance; } }
 	[SerializeField] public AudioClip exploreMusic;
@@ -23,12 +26,14 @@ public class PersistentMusic : MonoBehaviour
 			_instance = this;
 		}
 		DontDestroyOnLoad(this.gameObject);
-	}
 
-	void Start()
-	{
 		musicSource = GetComponent<AudioSource>();
 	}
+
+/* 	void Start()
+	{
+
+	} */
 
 	public void PlayExploreMusic()
 	{
@@ -45,6 +50,26 @@ public class PersistentMusic : MonoBehaviour
 		musicSource.Stop();
 		musicSource.PlayOneShot(introMusic);
 	}	
+	
+	public void ChooseMusic(int musicChoice)
+	{
+		switch (musicChoice)
+		{
+			case 0:
+				PlayIntroMusic();
+				break;
+			case 1:
+				PlayExploreMusic();
+				break;
+			case 2:
+				PlayActionMusic();
+				break;
+			default:
+				Debug.LogWarning("MusicTrigger has no music choice set");
+				break;
+		}
+	}
+
 	void Update()
 	{
 		if(!musicSource.isPlaying)

@@ -38,7 +38,7 @@ public class PlayerHp : MonoBehaviour
         currentHP = maxHP;
         isDead = false;
 		if(startAtCheckPoint)
-        	thePlayer.transform.position = theGameManager.respawnPoint;
+        	StartAtCheckPoint();
         
     }
 
@@ -114,9 +114,14 @@ public class PlayerHp : MonoBehaviour
         takingDamage = true;
         yield return new WaitForSeconds(1);
         canTakeDamage = true;
-        Debug.Log("Ei voi ottaa damagea");
+        //Debug.Log("Ei voi ottaa damagea");
         takingDamage = false;
     }
+	
+	void StartAtCheckPoint()
+	{
+		thePlayer.transform.position = theGameManager.GetStartPoint();
+	}
 
 
 }

@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 8167415724056370175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8167415724096593661}
   m_Father: {fileID: 8167415724908152302}
@@ -312,8 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a8d09b0b9eed84ea853dc7413770b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 1
-  isPaused: 0
 --- !u!95 &1489940214257441076
 Animator:
   serializedVersion: 3
@@ -868,7 +866,7 @@ RectTransform:
   m_GameObject: {fileID: 8167415725373555941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8167415725231756862}
   m_Father: {fileID: 8167415724908152302}
@@ -1151,7 +1149,7 @@ RectTransform:
   m_GameObject: {fileID: 8167415726088503726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8167415724410842249}
   m_Father: {fileID: 8167415724908152302}

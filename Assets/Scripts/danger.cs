@@ -24,7 +24,7 @@ public class danger : MonoBehaviour
            // playerHp.currentHP = playerHp.currentHP - dealDamage;
             stopDamaging = false;
            StartCoroutine(Damage());
-            Debug.Log("osuu");
+            //Debug.Log("osuu");
             
         }
     }
@@ -49,7 +49,7 @@ public class danger : MonoBehaviour
             playerHp.currentHP = playerHp.currentHP - dealDamage;
             yield return new WaitForSeconds(1);
             damaging = false;
-            Debug.Log("Loppu");
+            //Debug.Log("Loppu");
         }
         
     }

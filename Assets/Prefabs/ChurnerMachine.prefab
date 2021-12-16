@@ -68,10 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1143e75bf8f557e418239a0a7207c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  churmingSound: {fileID: 1156443266}
+  save: 0
   coinSpawnPoint: {fileID: 1022199367300428959}
   coinPrefab: {fileID: 5811625053898171715, guid: fdfad2ebaab5b8e4ea1c6a14966e2ab6, type: 3}
   smokeObject: {fileID: 1022199368347264069}
+  churnerSaveSlot: 0
   coinsToSpawn: 10
   coinSpeed: 3
   pressEText: {fileID: 9217567111316715277}
@@ -89,6 +90,7 @@ MonoBehaviour:
   - {fileID: 0}
   churnDelay: 0.2
   initialDelay: 2
+  anim: {fileID: 0}
 --- !u!95 &1022199367157484308
 Animator:
   serializedVersion: 3
@@ -131,7 +133,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022199367157484304}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 709d96e2dccdf8643af7ca462e9fafae, type: 3}
@@ -263,7 +265,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022199367157484304}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c662f16c72fad934ea39372f834c1712, type: 3}
@@ -10750,4 +10752,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireHeat: 0
   wireSteamObject: {fileID: 6730748537561705597}
+  haveParticles: 1
   meshRenderers: []

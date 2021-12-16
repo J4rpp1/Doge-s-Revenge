@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: b8e31f510723d3f4bbbfab414c812332
   - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 722c66b569910c84c88e17de1677f9f3
+  - enabled: 1
     path: Assets/Scenes/Game_World_2.unity
     guid: 7a5734829d9a4de4a999abf6ebce99e1
   - enabled: 1
     path: Assets/Scenes/BossFight.unity
     guid: b848b9fd28e8fb243ad447fc38b8e6c4
+  - enabled: 1
+    path: Assets/Scenes/Outro.unity
+    guid: 0bf0f3d1928ca514b99a9b6d3829d161
+  - enabled: 1
+    path: Assets/Scenes/Epilogue.unity
+    guid: 490008c3afe3daa4c8232b25dfaf36d0
   m_configObjects: {}

@@ -16,6 +16,13 @@ public class Boss : MonoBehaviour, IDamageable
     private Transform target;
     public string playerTag = "Player";
     public Animator animator;
+	[SerializeField] GameObject bossShieldCollider;
+	[SerializeField] GameObject bossShield;
+	MeshRenderer bossShield_rend;
+	Collider bossBodyCollider;
+	[SerializeField] float aimVerticalOffsetMultiplier = 1f;
+	Vector3 aimVerticalOffset;
+	[SerializeField] GameObject wreckPrefab;
 
     [Header("Enemies")]
     public GameObject meleeEnemy;
@@ -46,7 +53,14 @@ public class Boss : MonoBehaviour, IDamageable
     
     void Start()
     {
+		bossShield_rend = bossShield.GetComponent<MeshRenderer>();
+		bossBodyCollider = GetComponent<SphereCollider>();
+		aimVerticalOffset = Vector3.up * aimVerticalOffsetMultiplier;
+
         canTakeDamage = false;
+		bossShield_rend.enabled = true;
+		bossShieldCollider.SetActive(true);
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -109,17 +123,17 @@ public class Boss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(3);
             canShoot = true;
             hpAnimation.SetTrigger("BlockDisable");
-            canTakeDamage = true;
+            Vulnerable(true);
 
             yield return new WaitForSeconds(4);
             hpAnimation.ResetTrigger("BlockDisable");
             canShoot = false;
             yield return new WaitForSeconds(0.1f);
-            canTakeDamage = false;
+            Vulnerable(false);
             hpAnimation.SetTrigger("BlockEnable");
 
 
-            Debug.Log("hyökkää");
+            //Debug.Log("hyï¿½kkï¿½ï¿½");
             int EnemyAmount = Random.Range(1, 1);
             for (int i = 0; i < EnemyAmount; i++)
                 Instantiate(meleeEnemy, enemyPosition.position, Quaternion.identity);
@@ -146,7 +160,7 @@ public class Boss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(6);
             hpAnimation.ResetTrigger("BlockEnable");
             hpAnimation.SetTrigger("BlockDisable");
-            canTakeDamage = true;
+            Vulnerable(true);
             canShoot = true;
             animator.SetTrigger("Attack");
             yield return new WaitForSeconds(16);
@@ -154,7 +168,7 @@ public class Boss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(0.1f);
             animator.ResetTrigger("Attack");
             canShoot = false;
-            canTakeDamage = false;
+            Vulnerable(false);
             hpAnimation.SetTrigger("BlockEnable");
 
             yield return new WaitForSeconds(1);
@@ -174,7 +188,7 @@ public class Boss : MonoBehaviour, IDamageable
 
             hpAnimation.ResetTrigger("BlockEnable");
             hpAnimation.SetTrigger("BlockDisable");
-            canTakeDamage = true;
+            Vulnerable(true);
             canShoot = true;
             animator.SetTrigger("Attack2");
             yield return new WaitForSeconds(23);
@@ -182,7 +196,7 @@ public class Boss : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(0.1f);
             animator.ResetTrigger("Attack2");
             canShoot = false;
-            canTakeDamage = false;
+            Vulnerable(false);
             hpAnimation.SetTrigger("BlockEnable");
 
             yield return new WaitForSeconds(2);
@@ -212,8 +226,10 @@ public class Boss : MonoBehaviour, IDamageable
     void Shoot()
     {
         
-        Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
-        instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+        /* Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
+        instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed)); */
+		Rigidbody instantiatedProjectile = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
+		instantiatedProjectile.velocity = (target.position + aimVerticalOffset - shootPosition.position).normalized * speed;
     }
     #endregion
 
@@ -231,6 +247,24 @@ public class Boss : MonoBehaviour, IDamageable
         }
     }
 
+	void Vulnerable(bool vulnerable)
+	{
+		if(vulnerable)
+		{
+            canTakeDamage = true;
+			bossShield_rend.enabled = false;
+			bossBodyCollider.enabled = true;
+			bossShieldCollider.SetActive(false);
+		}
+		else
+		{
+            canTakeDamage = false;
+			bossShield_rend.enabled = true;
+			bossBodyCollider.enabled = false;
+			bossShieldCollider.SetActive(true);
+		}
+	}	
+
     void Die()
     {
 
@@ -245,6 +279,8 @@ public class Boss : MonoBehaviour, IDamageable
         var CoinAmount3 = Random.Range(2, 10);
         for (var i = 0; i < CoinAmount3; i++)
             Instantiate(coinPrefab, coinPosition3.position, Quaternion.identity);
+
+		Instantiate(wreckPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     #endregion

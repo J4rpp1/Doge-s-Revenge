@@ -42,7 +42,7 @@ public class EndPlatform : MonoBehaviour
 		if(other.CompareTag("Player"))
 		{
 			//ensure player is not dead?
-			Debug.Log("End portal triggered!");
+			//Debug.Log("End portal triggered!");
 			SceneManager.LoadScene("BossFight");
 		}
 	}

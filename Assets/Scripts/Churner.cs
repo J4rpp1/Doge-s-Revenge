@@ -59,7 +59,7 @@ public class Churner : MonoBehaviour
 	}
 	private void ActivateChurner()
 	{
-		Debug.Log("Coin churner activated!");
+		//Debug.Log("Coin churner activated!");
 		churning = true;
 		anim.SetBool("ChurnerAnimating", true);
 		//churmingSound.Play();
@@ -72,7 +72,7 @@ public class Churner : MonoBehaviour
 	}
 	public void StartActive()
 	{
-		Debug.Log("Coin churner starts activated!");
+		//Debug.Log("Coin churner starts activated!");
 		churning = true;
 		coinsToSpawn = 0;
 		anim.SetTrigger("SkipStart");
@@ -118,7 +118,7 @@ public class Churner : MonoBehaviour
 	}
 	IEnumerator Wait()
     {
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(0.2f);
 		StartActive();
     }
 	void GetSaveState()

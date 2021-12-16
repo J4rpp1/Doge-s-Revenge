@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public GameManager theGameManager;
+    GameManager theGameManager;
+	ParticleSystem saveParticles;
     Gun gun;
 
 
     void Start()
     {
         theGameManager = FindObjectOfType<GameManager>();
+		saveParticles = GetComponentInChildren<ParticleSystem>();
         gun = FindObjectOfType<Gun>();
     }
 
@@ -30,6 +32,7 @@ public class CheckPoint : MonoBehaviour
             theGameManager.x = transform.position.x;
             theGameManager.y = transform.position.y;
             theGameManager.z = transform.position.z;
+			saveParticles.Play();
         }
     }
 }
