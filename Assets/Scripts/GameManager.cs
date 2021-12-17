@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("X", newPosition.x);
         PlayerPrefs.SetFloat("Y", newPosition.y);
         PlayerPrefs.SetFloat("Z", newPosition.z);
+		PlayerPrefs.Save();
 		Debug.Log("Saved location at "+PlayerPrefs.GetFloat("X")+", "+PlayerPrefs.GetFloat("Y")+", "+PlayerPrefs.GetFloat("Z"));
     }
     public Vector3 GetSpawnPoint() // This method is identical to one below, but this one does not work. True madness.

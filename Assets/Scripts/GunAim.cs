@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GunAim : MonoBehaviour
 {
 	[SerializeField]
+	float reticleSpeed = 50f;
+	[SerializeField]
 	float maxAimRange;
 	[SerializeField]
 	Transform aimPoint;
@@ -41,7 +43,7 @@ public class GunAim : MonoBehaviour
 	}
 	void Update()
 	{
-		aimPoint.position = Vector3.Lerp(aimPoint.position, aimDesiredPosition, 50f * Time.deltaTime); //wrong way to use lerp and probably wrong way to use Time.deltaTime but it should work
+		aimPoint.position = Vector3.Lerp(aimPoint.position, aimDesiredPosition, reticleSpeed * Time.deltaTime); //wrong way to use lerp and probably wrong way to use Time.deltaTime but it should work
 		crosshair.position = cam.WorldToScreenPoint(aimPoint.position); //UI crosshair placed on physical aim point position
 
 		if(forceGunIntoHand)

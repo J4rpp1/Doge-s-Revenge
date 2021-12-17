@@ -3983,6 +3983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8850b9a354bbb69409573de7df03291b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reticleSpeed: 35
   maxAimRange: 500
   aimPoint: {fileID: 1432536073005295104}
   cam: {fileID: 5791651165254880958}
