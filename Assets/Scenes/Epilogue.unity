@@ -638,12 +638,12 @@ MonoBehaviour:
   m_text: 'Thank you for playing! We worked way too hard on this.
 
 
-    If there''s
-    a next version it might get some missing stuff, like Doge''s clothes and alien
-    cat''s physical appearance.
+    There might
+    be a new version upcoming with missing features added in.
 
 
-    Awesome that you made it to the end ^^'
+    Awesome that
+    you made it to the end ^^'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fadfc7a198c96f40aee26004bb489a1, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 6fadfc7a198c96f40aee26004bb489a1, type: 2}
