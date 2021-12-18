@@ -46,6 +46,13 @@ public class GameManager : MonoBehaviour
 			PlayerPrefs.GetFloat("X"), 
 			PlayerPrefs.GetFloat("Y"), 
 			PlayerPrefs.GetFloat("Z"));
+
+		if(PlayerPrefs.GetInt("DoubleJump") >= 10)
+		{
+			FindObjectOfType<ECM.Controllers.BaseCharacterController>().EnableDoubleJump(); //Find the controller and enable jumps
+			Debug.Log("Doublejump's forcibly actived from GameManager");
+		}
+
 		Debug.Log("Loaded save location at "+PlayerPrefs.GetFloat("X")+", "+PlayerPrefs.GetFloat("Y")+", "+PlayerPrefs.GetFloat("Z"));
 		return savePos;
     }

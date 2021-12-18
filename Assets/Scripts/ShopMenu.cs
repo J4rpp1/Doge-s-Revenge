@@ -36,7 +36,8 @@ public class ShopMenu : MonoBehaviour
         if(doubleJumpBought > 9)
         {
             doubleJumpIsActive = true;
-            Debug.Log("tuplahyppy");
+			FindObjectOfType<ECM.Controllers.BaseCharacterController>().EnableDoubleJump(); //Find the controller and enable jumps
+            Debug.Log("Doublejump's forcibly actived from ShopMenu");
         }
       /* if(doublejumppi == true)
         {
@@ -95,7 +96,7 @@ public class ShopMenu : MonoBehaviour
             playermoney.moneyCount = playermoney.moneyCount - doubleJumpCost;
             PlayerPrefs.SetInt("DoubleJump", 10);
             doubleJumpIsActive = true;
-			FindObjectOfType<ECM.Controllers.BaseCharacterController>().EnableDoubleJump();
+			FindObjectOfType<ECM.Controllers.BaseCharacterController>().EnableDoubleJump(); //Find the controller and enable jumps on it manually so no restart is required.
         }
     }
 
