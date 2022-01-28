@@ -57,6 +57,11 @@ public class ShopMenu : MonoBehaviour
             shopActive = true;
             pressEText.SetActive(false);
         }
+		
+		if (shopActive && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
+		{
+			CloseMenu();
+		}
     }
 
     private void OnTriggerEnter(Collider other)
